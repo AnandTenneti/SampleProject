@@ -1,8 +1,7 @@
-import elements.HomePage;
-import elements.NonBreakingSpacePage;
-import elements.SampleAppPage;
-import elements.VisibilityPage;
-import org.openqa.selenium.Alert;
+import pages.HomePage;
+import pages.NonBreakingSpacePage;
+import pages.SampleAppPage;
+import pages.VisibilityPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,37 +1,19 @@
-import elements.HomePage;
-import elements.ProgressBarPage;
-import elements.ScrollbarsPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.HomePage;
+import pages.ProgressBarPage;
+import pages.ScrollbarsPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import java.awt.Toolkit;
-import java.util.concurrent.TimeUnit;
 
 public class TestClass3 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Scrollbars", "Dynamic Table", "Verify Text", "Progress Bar"));
 
     @Test(priority = 1)
-    public void test_Scrollbar() throws InterruptedException {
+    public void test_Scrollbar() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
@@ -41,8 +23,30 @@ public class TestClass3 extends BaseTest {
         scrollPage.clickOnButton();
     }
 
+    @Test(priority = 2)
+    public void test_dynamicTable() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(1));
+        Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
+        ScrollbarsPage scrollPage = new ScrollbarsPage(driver);
+        scrollPage.scrollElementIntoView();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        scrollPage.clickOnButton();
+    }
+
+    @Test(priority = 3)
+    public void test_verifyText() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(2));
+        Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
+        ScrollbarsPage scrollPage = new ScrollbarsPage(driver);
+        scrollPage.scrollElementIntoView();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        scrollPage.clickOnButton();
+    }
+
     @Test(priority = 4)
-    public void test_progressBar() throws InterruptedException {
+    public void test_progressBar() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page title is not matching");
