@@ -8,3 +8,14 @@
      <tr><td><a href="#">Animated Button</a></td><td><a href="#">Disabled Input</a></td><td><a href="#">Auto Wait</a></td></tr>
   </tbody>
 </table>
+<table align="right">
+  <tr>
+  <td>Total No. of Test Cases</td><td>23</td>
+  </tr>
+   <tr>
+  <td>No. of Test Cases Executed</td><td>12</td>
+  </tr>
+   <tr>
+  <td>No. of Test Cases Remaining</td><td>11</td>
+  </tr>
+</table>
