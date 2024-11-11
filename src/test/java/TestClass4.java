@@ -1,7 +1,5 @@
-import pages.HomePage;
-import pages.NonBreakingSpacePage;
-import pages.SampleAppPage;
-import pages.VisibilityPage;
+import org.openqa.selenium.interactions.Actions;
+import pages.*;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,11 +13,12 @@ public class TestClass4 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));
 
-    @Test(priority = 1)//Done
+    @Test(priority = 1)
     public void test_visibility() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
+
         VisibilityPage visibilityPage = new VisibilityPage(driver);
         int noOfElementsDisplayed = visibilityPage.areButtonsDisplayed();
         System.out.println(noOfElementsDisplayed);
@@ -32,12 +31,12 @@ public class TestClass4 extends BaseTest {
         Assert.assertNotEquals(noOfElementsDisplayed, noOfElementsDisplayed_updated);
     }
 
-    @Test(priority = 2)//Done
+    @Test(priority = 2)
     public void test_sampleApp() {
-        driver.get("http://uitestingplayground.com/");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Title is not matching");
+
         SampleAppPage samplePage = new SampleAppPage(driver);
         String loginButtonText = samplePage.getLoginButtonText();
         Assert.assertEquals(loginButtonText, "Log In", "Button text is not matching");
@@ -55,11 +54,43 @@ public class TestClass4 extends BaseTest {
         Assert.assertEquals(logoutMessage, "User logged out.", "logout message is incorrect");
     }
 
+    @Test(priority = 3)
+    public void test_mouseOver() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(2));
+        Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
+
+        MouseOverPage moPage = new MouseOverPage(driver);
+        String tooltipText = moPage.getToolTipTitle();
+        System.out.println("The tooltip text before mouse hover is " + tooltipText);
+        Assert.assertEquals(tooltipText, "Click me", "Tooltip title is not matching");
+        moPage.hoverOverLink("1");
+        tooltipText = moPage.getToolTipTitle();
+        System.out.println("The tooltip text after mouse hover is " + tooltipText);
+
+        Assert.assertEquals(tooltipText, "Active Link", "Tooltip title is not matching");
+        moPage.clickOnClickMeLink();
+        moPage.clickOnClickMeLink();
+        int clicksCount = moPage.getClickCount();
+        Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
+        tooltipText = moPage.getToolTipTitle1();
+        System.out.println("The tooltip text after mouse hover is " + tooltipText);
+        Assert.assertEquals(tooltipText, "Link Button", "Tooltip title is not matching");
+        moPage.hoverOverLink("2");
+        tooltipText = moPage.getToolTipTitle1();
+        Assert.assertEquals(tooltipText, "Link Button", "Tooltip title is not matching");
+        moPage.clickOnLinkButtonLink();
+        moPage.clickOnLinkButtonLink();
+        clicksCount = moPage.getClickCount();
+        Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
+    }
+
     @Test(priority = 4)//Done
     public void test_nbsp() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Title is not matching");
+        
         NonBreakingSpacePage nbPage = new NonBreakingSpacePage(driver);
         nbPage.clickOnButton();
     }
