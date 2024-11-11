@@ -90,7 +90,7 @@ public class TestClass4 extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Title is not matching");
-        
+
         NonBreakingSpacePage nbPage = new NonBreakingSpacePage(driver);
         nbPage.clickOnButton();
     }
