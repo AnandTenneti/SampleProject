@@ -1,3 +1,10 @@
+What the project does.
+Why the project is useful.
+How users can get started with the project.
+Where users can get help with your project.
+Who maintains and contributes to the project.
+
+
 <table border-width=0>
   <tbody>
     <tr><td><a href="#">Dynamic ID</a></td><td><a href="#">Class Attribute</a></td><td><a href="#">Hidden Layers</a></td><td><a href="#">Load Delay</a></td></tr>
