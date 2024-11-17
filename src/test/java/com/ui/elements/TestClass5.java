@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import pages.AlertsPage;
+import pages.FileUploadPage;
 import pages.HomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -83,10 +84,17 @@ public class TestClass5 extends BaseTest {
         alertPage.acceptOrdismiss("Yes");
     }
 
+    //Upload a file using sendKeys method
     @Test(priority = 4)
-    public void test_fileUpload() {
+    public void test_fileUpload() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
-        homePage.clickOnLink(links.get(1));
+        homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
+        FileUploadPage fpage = new FileUploadPage(driver);
+        fpage.switchToCurrentFrame();
+        //fpage.unhideUploadButton();
+        String filePath = System.getProperty("user.dir") + "/src/test/resources/test1.txt";
+        System.out.println(filePath);
+        fpage.uploadFile(filePath);
     }
 }
