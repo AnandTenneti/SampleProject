@@ -6,11 +6,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
 public class FileUploadPage {
     WebDriver driver;
+    JavascriptExecutor js;
 
     public FileUploadPage(WebDriver driver) {
         this.driver = driver;
@@ -41,11 +43,19 @@ public class FileUploadPage {
     }
 
     public void unHideUploadButton() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.display='block;'", browseButton);
     }
 
+    public File[] getListOfFiles(String filePath) {
+        File folder = new File(filePath);
+        File[] listOfFiles = folder.listFiles();
+        return listOfFiles;
+    }
+
     public void uploadFile(String actualfilePath) {
+        js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value = '';", browseButton);
         browseButton.sendKeys(actualfilePath);
     }
 
