@@ -1,23 +1,16 @@
 package com.ui.elements;
 
-import com.ui.elements.BaseTest;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import pages.AlertsPage;
 import pages.FileUploadPage;
 import pages.HomePage;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ShadowDOMPage;
 
-import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class TestClass5 extends BaseTest {
 
@@ -92,9 +85,30 @@ public class TestClass5 extends BaseTest {
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
         FileUploadPage fpage = new FileUploadPage(driver);
         fpage.switchToCurrentFrame();
-        //fpage.unhideUploadButton();
         String filePath = System.getProperty("user.dir") + "/src/test/resources/test1.txt";
         System.out.println(filePath);
         fpage.uploadFile(filePath);
     }
+
+    @Test(priority = 4)
+    public void test_multiplefileUpload() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(3));
+        Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
+        FileUploadPage fpage = new FileUploadPage(driver);
+        fpage.switchToCurrentFrame();
+        String folderPath = System.getProperty("user.dir") + "/src/test/resources/testfiles/";
+        File[] listOfFilesInGivenFolder = fpage.getListOfFiles(folderPath);
+        if (listOfFilesInGivenFolder != null) {
+            for (int i = 0; i < listOfFilesInGivenFolder.length; i++) {
+                if (listOfFilesInGivenFolder[i].isFile()) {
+                    fpage.uploadFile(listOfFilesInGivenFolder[i].getAbsolutePath());
+                } else {
+                    continue;
+                }
+            }
+        }
+        Thread.sleep(5000);
+    }
+
 }
