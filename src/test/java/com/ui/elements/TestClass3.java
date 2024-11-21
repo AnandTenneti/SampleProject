@@ -1,3 +1,8 @@
+package com.ui.elements;
+
+import com.ui.elements.BaseTest;
+import org.openqa.selenium.By;
+import pages.DynamicTablePage;
 import pages.HomePage;
 import pages.ProgressBarPage;
 import pages.ScrollbarsPage;
@@ -28,21 +33,22 @@ public class TestClass3 extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
-        ScrollbarsPage scrollPage = new ScrollbarsPage(driver);
-        scrollPage.scrollElementIntoView();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        scrollPage.clickOnButton();
+        //TODO
+        Thread.sleep(5000);
+        DynamicTablePage page = new DynamicTablePage(driver);
+        String cpuValue = page.getValues("Firefox");
+        // System.out.println(cpuValue);
+        System.out.println(page.getLabelInMessage());
+        Assert.assertTrue(page.getLabelInMessage().contains(cpuValue), "The values are not " +
+               "matching");
     }
 
     @Test(priority = 3)
-    public void test_verifyText() throws InterruptedException {
+    public void test_verifyText() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
-        ScrollbarsPage scrollPage = new ScrollbarsPage(driver);
-        scrollPage.scrollElementIntoView();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        scrollPage.clickOnButton();
+        //TODO
     }
 
     @Test(priority = 4)
