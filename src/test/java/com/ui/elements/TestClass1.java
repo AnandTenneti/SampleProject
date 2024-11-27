@@ -66,8 +66,4 @@ public class TestClass1 extends BaseTest {
         Assert.assertTrue(loadDelayPage.isButtonDisplayed());
         loadDelayPage.clickOnButton();
     }
-
-
-
-
 }
