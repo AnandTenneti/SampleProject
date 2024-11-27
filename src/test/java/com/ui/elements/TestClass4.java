@@ -1,6 +1,8 @@
-import org.openqa.selenium.interactions.Actions;
+package com.ui.elements;
+
+import com.dataprovider.DataSupplier;
+import org.openqa.selenium.WebElement;
 import pages.*;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TestClass4 extends BaseTest {
-
 
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));
@@ -18,21 +19,23 @@ public class TestClass4 extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
-
+        // Verify the functionality in Visibility page
         VisibilityPage visibilityPage = new VisibilityPage(driver);
         int noOfElementsDisplayed = visibilityPage.areButtonsDisplayed();
-        System.out.println(noOfElementsDisplayed);
-        Assert.assertEquals(noOfElementsDisplayed > 1, true);
+        Assert.assertTrue(noOfElementsDisplayed > 1);
         visibilityPage.clickOnHideButton();
-        Assert.assertEquals(visibilityPage.verifyButtonNotDisplayed(),
-                true, "Element is displayed");
+        Assert.assertTrue(visibilityPage.verifyButtonNotDisplayed(), "Element is displayed");
         int noOfElementsDisplayed_updated = visibilityPage.areButtonsDisplayed();
-        System.out.println(noOfElementsDisplayed_updated);
         Assert.assertNotEquals(noOfElementsDisplayed, noOfElementsDisplayed_updated);
     }
 
-    @Test(priority = 2)
-    public void test_sampleApp() {
+    /***
+     * In the sampleApp, we are verifying login success functionality
+     * @param username can use any of the alphanumeric values
+     *                 and the password value is constant
+     */
+    @Test(priority = 2, dataProvider = "loginTestData", dataProviderClass = DataSupplier.class)
+    public void test_sampleApp(String username) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Title is not matching");
@@ -40,12 +43,11 @@ public class TestClass4 extends BaseTest {
         SampleAppPage samplePage = new SampleAppPage(driver);
         String loginButtonText = samplePage.getLoginButtonText();
         Assert.assertEquals(loginButtonText, "Log In", "Button text is not matching");
-        String usernameValue = "Anand";
-        samplePage.setUsername(usernameValue);
+        samplePage.setUsername(username);
         samplePage.setPassword();
         samplePage.clickOnLoginButton();
         String loginMessage = samplePage.getLoginStatusText();
-        String actualLoginMessage = "Welcome, " + usernameValue + "!";
+        String actualLoginMessage = "Welcome, " + username + "!";
         Assert.assertEquals(loginMessage, actualLoginMessage, "Both messages are not matching");
         loginButtonText = samplePage.getLoginButtonText();
         Assert.assertEquals(loginButtonText, "Log Out", "Button text is not matching");
@@ -61,31 +63,31 @@ public class TestClass4 extends BaseTest {
         Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
 
         MouseOverPage moPage = new MouseOverPage(driver);
-        String tooltipText = moPage.getToolTipTitle();
+        String tooltipText = moPage.getToolTipTitleOfClickMe();
         System.out.println("The tooltip text before mouse hover is " + tooltipText);
         Assert.assertEquals(tooltipText, "Click me", "Tooltip title is not matching");
         moPage.hoverOverLink("1");
-        tooltipText = moPage.getToolTipTitle();
+        tooltipText = moPage.getToolTipTitleOfClickMe();
         System.out.println("The tooltip text after mouse hover is " + tooltipText);
 
         Assert.assertEquals(tooltipText, "Active Link", "Tooltip title is not matching");
-        moPage.clickOnClickMeLink();
-        moPage.clickOnClickMeLink();
+        WebElement clickMe = moPage.getElement();
+        moPage.clickOnLink(clickMe);
         int clicksCount = moPage.getClickCount();
         Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
-        tooltipText = moPage.getToolTipTitle1();
+        tooltipText = moPage.getToolTipTitleOfLinkButton();
         System.out.println("The tooltip text after mouse hover is " + tooltipText);
         Assert.assertEquals(tooltipText, "Link Button", "Tooltip title is not matching");
         moPage.hoverOverLink("2");
-        tooltipText = moPage.getToolTipTitle1();
+        tooltipText = moPage.getToolTipTitleOfLinkButton();
         Assert.assertEquals(tooltipText, "Link Button", "Tooltip title is not matching");
-        moPage.clickOnLinkButtonLink();
-        moPage.clickOnLinkButtonLink();
+        WebElement linkButton = moPage.getElement1();
+        moPage.clickOnLink(linkButton);
         clicksCount = moPage.getClickCount();
         Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
     }
 
-    @Test(priority = 4)//Done
+    @Test(priority = 4)
     public void test_nbsp() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
@@ -94,65 +96,4 @@ public class TestClass4 extends BaseTest {
         NonBreakingSpacePage nbPage = new NonBreakingSpacePage(driver);
         nbPage.clickOnButton();
     }
-
-    @Test(priority = 3)
-    public void test_progressBar() throws InterruptedException {
-        driver.get("http://uitestingplayground.com/progressbar");
-        String resultText = driver.findElement(By.id("result")).getText();
-        System.out.println(resultText);
-        Assert.assertEquals(resultText, "Result: n/a");
-        driver.findElement(By.id("startButton")).click();
-        String progressBarValue = driver.findElement(By.id("progressBar")).getAttribute("aria" +
-                "-valuenow");
-        int progressBarVal = Integer.parseInt(progressBarValue);
-        do {
-            progressBarValue = driver.findElement(By.id("progressBar")).getAttribute("aria" +
-                    "-valuenow");
-            progressBarVal = Integer.parseInt(progressBarValue);
-
-        } while (progressBarVal != 75);
-        if (progressBarVal == 75) {
-            driver.findElement(By.id("stopButton")).click();
-        }
-        resultText = driver.findElement(By.id("result")).getText();
-        Thread.sleep(5000);
-        Assert.assertTrue(resultText.contains("Result: 0"));
-
-    }
-
-
-//    @Test(priority = 6)
-//    public void test_Alerts() throws InterruptedException {
-//        driver.get("http://uitestingplayground.com/alerts");
-//        driver.findElement(By.id("alertButton")).click();
-//        Alert simpleAlert = driver.switchTo().alert();
-//        System.out.println(simpleAlert.getText());
-//        simpleAlert.accept();
-//        Thread.sleep(2000);
-//        driver.findElement(By.id("confirmButton")).click();
-//        Alert confirmAlert = driver.switchTo().alert();
-//        System.out.println(confirmAlert.getText());
-//        confirmAlert.accept();
-//        Thread.sleep(2000);
-//        Alert confirmAgainAlert = driver.switchTo().alert();
-//        System.out.println(confirmAgainAlert.getText());
-//        confirmAgainAlert.accept();
-//        Thread.sleep(2000);
-//        driver.findElement(By.id("promptButton")).click();
-//        Alert promptAlert = driver.switchTo().alert();
-//        promptAlert.sendKeys("dogs");
-//        promptAlert.accept();
-//        Thread.sleep(2000);
-//        Alert promptAgainAlert = driver.switchTo().alert();
-//        System.out.println(confirmAgainAlert.getText());
-//        promptAgainAlert.accept();
-//        Thread.sleep(2000);
-////        Alert simpleAlert = driver.switchTo().alert();
-////        System.out.println(simpleAlert.getText());
-////        simpleAlert.accept();
-////        Thread.sleep(2000);
-//
-//    }
-
-
 }
