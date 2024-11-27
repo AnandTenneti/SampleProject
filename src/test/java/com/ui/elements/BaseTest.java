@@ -1,12 +1,12 @@
 package com.ui.elements;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -22,8 +22,9 @@ public class BaseTest {
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
     }
 
     @BeforeMethod
@@ -54,7 +55,7 @@ public class BaseTest {
         File file = ts.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(file,
-                    new File("./Screenshots/" + screenshotsSubFolderName + "/" + fileName+".png"));
+                    new File("./Screenshots/" + screenshotsSubFolderName + "/" + fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
