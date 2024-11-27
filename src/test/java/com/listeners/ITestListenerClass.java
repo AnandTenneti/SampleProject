@@ -1,7 +1,6 @@
 package com.listeners;
 
 import com.ui.elements.BaseTest;
-import com.utils.Utils;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
