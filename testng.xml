@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="UI Testing Playground Test Suite">
+    <test name="UI Testing Playground- Regression test cases">
+<!--        <classes>-->
+<!--            <class name="com.ui.elements.TestClass1"/>-->
+<!--            <class name="com.ui.elements.TestClass2"/>-->
+<!--            <class name="com.ui.elements.TestClass3"/>-->
+            <class name="com.ui.elements.TestClass4"/>
+<!--            <class name="com.ui.elements.TestClass5"/>-->
+<!--            <class name="com.ui.elements.TestClass6"/>-->
+        </classes>
+    </test>
+
+</suite>
+

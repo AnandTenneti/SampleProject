@@ -34,6 +34,11 @@
             <artifactId>testng</artifactId>
             <version>7.10.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.1.2</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -44,7 +49,7 @@
                     <version>3.2.5</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>testng2.xml</suiteXmlFile>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
