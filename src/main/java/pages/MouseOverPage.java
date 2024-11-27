@@ -18,10 +18,10 @@ public class MouseOverPage {
     }
 
     @FindBy(linkText = "Click me")
-    private WebElement link1;
+    private WebElement clickMeLink;
 
     @FindBy(linkText = "Link Button")
-    private WebElement link2;
+    private WebElement linkButtonLink;
 
     @FindBy(css = "span[id='clickCount']")
     private WebElement clickCount;
@@ -30,32 +30,47 @@ public class MouseOverPage {
         actions = new Actions(driver);
         switch (choice) {
             case "1":
-                actions.moveToElement(link1).perform();
+                actions.moveToElement(clickMeLink).perform();
                 break;
             case "2":
-                actions.moveToElement(link2).perform();
+                actions.moveToElement(linkButtonLink).perform();
                 break;
         }
     }
 
-    public String getToolTipTitle() {
-        return link1.getAttribute("title");
+    public String getToolTipTitleOfClickMe() {
+        return clickMeLink.getAttribute("title");
     }
 
-    public String getToolTipTitle1() {
-        return link2.getAttribute("title");
+    public String getToolTipTitleOfLinkButton() {
+        return linkButtonLink.getAttribute("title");
     }
-    
+
+
     public void clickOnClickMeLink() {
-        link1.click();
+        clickMeLink.click();
     }
 
     public void clickOnLinkButtonLink() {
-        link2.click();
+        linkButtonLink.click();
     }
 
     public int getClickCount() {
         return Integer.parseInt(clickCount.getText());
+    }
+
+    public WebElement getElement() {
+        return clickMeLink;
+    }
+
+    public WebElement getElement1() {
+        return linkButtonLink;
+    }
+
+    public void clickOnLink(WebElement element) {
+        for (int i = 0; i < 2; i++) {
+            element.click();
+        }
     }
 
 }
