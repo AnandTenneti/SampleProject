@@ -1,10 +1,10 @@
 <h1>UI Test Automation Playground</h1>
 <h2>Introduction</h2>
-*The purpose of this website is to provide a platform for sharpening UI test automation 
+**The purpose of this website is to provide a platform for sharpening UI test automation 
 skills. 
 Use it to practice with your test automation tool. Use it to learn test automation techniques.
 Different automation pitfalls appearing in modern web applications are described and emulated 
-below.*
+below.**
 <h2>Languages</h2>
 <h3>Page Objects</h3>
 <h3>Page Objects</h3>
