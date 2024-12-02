@@ -18,9 +18,9 @@ on:
   workflow_dispatch:
     inputs:
       mavenProfile:
-        description:'android or web or ios or unit-test'
-        required:true
-        default:'web'
+          description: 'android or web or ios or unit-test'
+          required: true
+          default: 'web'
 
 
 
