@@ -20,7 +20,7 @@ on:
       mavenProfile:
         description:'android or web or ios or unit-test'
         required:true
-        default:web
+        default:'web'
 
 
 
