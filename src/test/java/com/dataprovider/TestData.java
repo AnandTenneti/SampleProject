@@ -1,7 +1,10 @@
 package com.dataprovider;
 
 public class TestData {
-    
+
+    public static final String USER_DIR = System.getProperty("user.dir");
+    public static final String PATH_TO_TEST_FILES_DIR = "/src/test/resources/testfiles/";
+
     public enum ElementType {
         INPUT("Input"),
         BUTTON("Button"),
@@ -21,9 +24,9 @@ public class TestData {
     }
 
     public enum WaitTime {
-        WAIT_FOR_3S(3000),
-        WAIT_FOR_5S(5000),
-        WAIT_FOR_10S(10000);
+        WAIT_FOR_3S(3),
+        WAIT_FOR_5S(5),
+        WAIT_FOR_10S(10);
 
         private int waitingTime;
 
