@@ -1,16 +1,17 @@
 package com.ui.elements;
 
-import com.ui.elements.BaseTest;
-import pages.AnimatedButtonPage;
-import pages.DisabledInputPage;
-import pages.HomePage;
-import pages.VisibilityPage;
+
+import com.dataprovider.TestData.WaitTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AnimatedButtonPage;
+import pages.AutoWaitPage;
+import pages.DisabledInputPage;
+import pages.HomePage;
+import com.dataprovider.TestData.ElementType;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -57,45 +58,28 @@ public class TestClass6 extends BaseTest {
 
 
     @Test(priority = 3)
-    public void test_autoWait() throws InterruptedException {
-        ArrayList<String> links = new ArrayList<String>(
-                Arrays.asList("Button", "Input", "Textarea", "Select", "Label"));
-        driver.get("http://uitestingplayground.com/");
+    public void test_autoWait() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Title is not matching");
-        Thread.sleep(2000);
-        Select select = new Select(driver.findElement(By.id("element-type")));
-        select.selectByVisibleText("Select");
-        Thread.sleep(5000);
-        Assert.assertTrue(driver.findElement(By.cssSelector("select#target")).isDisplayed());
-        driver.findElement(By.id("applyButton3")).click();
+        AutoWaitPage awPage = new AutoWaitPage(driver);
+        awPage.selectElementType(ElementType.SELECT.getDescription());
+        String tagName = awPage.getTagName();
+        System.out.println(tagName);
+        Assert.assertEquals(ElementType.SELECT.getDescription().toLowerCase(), awPage.getTagName(), "Both are not equal");
+        Assert.assertTrue(awPage.isElementDisplayed(tagName));
+        awPage.clickOnApplyButton(1);
         String status = "Target element settings applied for 3 seconds.";
-        Assert.assertEquals(driver.findElement(By.id("opstatus")).getText(), status, "Messages are not same");
-        Thread.sleep(3000);
-
-        Assert.assertTrue(driver.findElement(By.id("opstatus")).getText().equalsIgnoreCase(
+        Assert.assertEquals(awPage.getStatusMessage(), status, "Messages are not same");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime.WAIT_FOR_3S.getWaitTime()));
+        wait.until(ExpectedConditions
+                .textToBePresentInElementLocated(
+                        By.id("opstatus"), "Target element state restored."));
+        Assert.assertTrue(awPage.getStatusMessage().equalsIgnoreCase(
                 "Target element state restored."), "Messages are " +
                 "not same");
 
-//        String resultText = driver.findElement(By.id("result")).getText();
-//        System.out.println(resultText);
-//        Assert.assertEquals(resultText, "Result: n/a");
-//        driver.findElement(By.id("startButton")).click();
-//        String progressBarValue = driver.findElement(By.id("progressBar")).getAttribute("aria" +
-//                "-valuenow");
-//        int progressBarVal = Integer.parseInt(progressBarValue);
-//        do {
-//            progressBarValue = driver.findElement(By.id("progressBar")).getAttribute("aria" +
-//                    "-valuenow");
-//            progressBarVal = Integer.parseInt(progressBarValue);
-//
-//        } while (progressBarVal != 75);
-//        if (progressBarVal == 75) {
-//            driver.findElement(By.id("stopButton")).click();
-//        }
-//        resultText = driver.findElement(By.id("result")).getText();
-//        Thread.sleep(5000);
-//        Assert.assertTrue(resultText.contains("Result: 0"));
     }
+
+
 }
