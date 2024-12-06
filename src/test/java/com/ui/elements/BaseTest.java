@@ -31,10 +31,7 @@ public class BaseTest {
     public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-debugging-pipe");
-
-        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
 
         FileInputStream fis = new FileInputStream(new File(USER_DIR + "/src/main/resources/config" +
