@@ -52,7 +52,7 @@ jobs:
           channel: '#dec-2024'
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          if: always()
+        if: always()
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
