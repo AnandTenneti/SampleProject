@@ -18,14 +18,16 @@ on:
   workflow_dispatch:
     inputs:
       mavenProfile:
-          description: 'android or web or ios or unit-test'
-          required: true
-          default: 'web'
+        description: 'android or web or ios or unit-test'
+        required: true
+        default: 'web'
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
       - name: checks out the project in the runner
@@ -45,7 +47,14 @@ jobs:
         run: |
           mvn -v
           mvn -B package --file pom.xml
+      - uses: act10ns/slack@v2
+        with:
+          channel: '#dec-2024'
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          if: always()
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
           step: save
+
