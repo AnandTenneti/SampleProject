@@ -38,6 +38,9 @@ public class AutoWaitPage {
     @FindBy(xpath = "//ul/li[@class='form-check']/input")
     private List<WebElement> checkBoxList;
 
+    @FindBy(id = "opstatus")
+    private WebElement status;
+
 
     public void selectElementType(String elementText) {
         Select select = new Select(elementType);
@@ -46,6 +49,12 @@ public class AutoWaitPage {
 
     public String getTagName() {
         return targetElement.getTagName();
+    }
+
+    public boolean isElementDisplayed(String tagName) {
+        System.out.println(tagName + "#target");
+        return driver.findElement(By.cssSelector("#target")).isDisplayed();
+
     }
 
     public void clickOnApplyButton(int choice) {
@@ -77,6 +86,10 @@ public class AutoWaitPage {
             elementProperty.click();
 
         }
+    }
+
+    public String getStatusMessage() {
+        return status.getText();
     }
 
 
