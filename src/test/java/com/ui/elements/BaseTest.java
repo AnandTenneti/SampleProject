@@ -18,6 +18,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
+import static com.dataprovider.TestData.USER_DIR;
+
 public class BaseTest {
     public static WebDriver driver;
     public static String screenshotsSubFolderName;
@@ -29,10 +31,14 @@ public class BaseTest {
     public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless");
+        options.addArguments("--disable-dev-shm-usage");
+
+        options.addArguments("--ignore-ssl-errors=yes");
+        options.addArguments("--ignore-certificate-errors");
         driver = new ChromeDriver(options);
 
-        FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "/src/main/resources/config.properties"));
+        FileInputStream fis = new FileInputStream(new File(USER_DIR + "/src/main/resources/config" +
+                ".properties"));
         properties.load(fis);
 
     }
