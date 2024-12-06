@@ -32,6 +32,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-debugging-pipe");
 
         options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
