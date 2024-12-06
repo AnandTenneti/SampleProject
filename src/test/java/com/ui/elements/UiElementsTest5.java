@@ -12,7 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class TestClass5 extends BaseTest {
+import static com.dataprovider.TestData.PATH_TO_TEST_FILES_DIR;
+import static com.dataprovider.TestData.USER_DIR;
+
+public class UiElementsTest5 extends BaseTest {
 
 
     ArrayList<String> links = new ArrayList<String>(
@@ -85,19 +88,19 @@ public class TestClass5 extends BaseTest {
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
         FileUploadPage fpage = new FileUploadPage(driver);
         fpage.switchToCurrentFrame();
-        String filePath = System.getProperty("user.dir") + "/src/test/resources/test1.txt";
+        String filePath = USER_DIR + "/src/test/resources/test1.txt";
         System.out.println(filePath);
         fpage.uploadFile(filePath);
     }
 
     @Test(priority = 4)
-    public void test_multiplefileUpload() throws InterruptedException {
+    public void test_multipleFileUpload() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
         FileUploadPage fpage = new FileUploadPage(driver);
         fpage.switchToCurrentFrame();
-        String folderPath = System.getProperty("user.dir") + "/src/test/resources/testfiles/";
+        String folderPath = USER_DIR + PATH_TO_TEST_FILES_DIR;
         File[] listOfFilesInGivenFolder = fpage.getListOfFiles(folderPath);
         if (listOfFilesInGivenFolder != null) {
             for (int i = 0; i < listOfFilesInGivenFolder.length; i++) {

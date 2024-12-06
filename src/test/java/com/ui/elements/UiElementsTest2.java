@@ -1,19 +1,16 @@
 package com.ui.elements;
 
-import com.ui.elements.BaseTest;
 import pages.AjaxDataPage;
 import pages.ClientDelayPage;
 import pages.HomePage;
 import pages.TextInputPage;
-import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TestClass2 extends BaseTest {
+public class UiElementsTest2 extends BaseTest {
 
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("AJAX Data", "Client Side Delay", "Click", "Text Input"));

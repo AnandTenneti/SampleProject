@@ -1,7 +1,5 @@
 package com.ui.elements;
 
-import com.ui.elements.BaseTest;
-import org.openqa.selenium.By;
 import pages.DynamicTablePage;
 import pages.HomePage;
 import pages.ProgressBarPage;
@@ -13,7 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TestClass3 extends BaseTest {
+public class UiElementsTest3 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Scrollbars", "Dynamic Table", "Verify Text", "Progress Bar"));
 

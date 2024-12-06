@@ -1,9 +1,7 @@
 package com.ui.elements;
 
-import com.ui.elements.BaseTest;
 import pages.*;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -13,7 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TestClass1 extends BaseTest {
+public class UiElementsTest1 extends BaseTest {
 
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Dynamic ID", "Class Attribute", "Hidden Layers", "Load Delay"));

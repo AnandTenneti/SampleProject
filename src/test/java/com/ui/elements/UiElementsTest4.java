@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TestClass4 extends BaseTest {
+public class UiElementsTest4 extends BaseTest {
 
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));

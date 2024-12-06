@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TestClass6 extends BaseTest {
+public class UiElementsTest6 extends BaseTest {
 
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Animated Button", "Disabled Input", "Auto Wait"));
@@ -39,7 +39,7 @@ public class TestClass6 extends BaseTest {
         Assert.assertTrue(statusMessage.contains(classNameOfMovingTargetButton));
     }
 
-    @Test(priority = 2)//Done
+    @Test(priority = 2)
     public void test_disabledInput() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
