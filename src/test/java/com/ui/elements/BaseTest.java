@@ -33,8 +33,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
 
-        options.addArguments("--ignore-ssl-errors=yes");
-        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
 
         FileInputStream fis = new FileInputStream(new File(USER_DIR + "/src/main/resources/config" +
