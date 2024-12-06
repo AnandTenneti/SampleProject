@@ -11,25 +11,35 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Properties;
 
 public class BaseTest {
     public static WebDriver driver;
     public static String screenshotsSubFolderName;
 
+    Properties properties = new Properties();
+
+
     @BeforeTest
-    public void setUp() {
+    public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        // options.addArguments("--headless");
         driver = new ChromeDriver(options);
+
+        FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "/src/main/resources/config.properties"));
+        properties.load(fis);
+
     }
 
     @BeforeMethod
     public void launchURL() {
-        driver.get("http://uitestingplayground.com/");
+        driver.get(properties.getProperty("baseURL"));
     }
 
     @AfterMethod
