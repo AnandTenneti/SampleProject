@@ -22,9 +22,6 @@ on:
           required: true
           default: 'web'
 
-
-
-
 jobs:
   build:
 
@@ -38,6 +35,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - uses: browser-actions/setup-chrome@v1
+        with:
+            chrome-version: 120
+            install-chromedriver: true
           # cache: maven
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
