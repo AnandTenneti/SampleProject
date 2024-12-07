@@ -1,23 +1,24 @@
 package com.ui.elements;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
+import static com.dataprovider.TestData.PATH_TO_CONFIG_FILE;
 import static com.dataprovider.TestData.USER_DIR;
 
 public class BaseTest {
@@ -29,15 +30,9 @@ public class BaseTest {
 
     @BeforeTest
     public void setUp() throws IOException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-
-        FileInputStream fis = new FileInputStream(new File(USER_DIR + "/src/main/resources/config" +
-                ".properties"));
+        driver = Browser.getDriver("firefox");
+        FileInputStream fis = new FileInputStream(new File(USER_DIR + PATH_TO_CONFIG_FILE));
         properties.load(fis);
-
     }
 
     @BeforeMethod
