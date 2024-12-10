@@ -28,26 +28,26 @@ public class BaseTest {
     Properties properties = new Properties();
 
 
-    @BeforeTest
-    public void setUp() throws IOException {
-        driver = Browser.getDriver("firefox");
+    @BeforeTest(alwaysRun = true)
+    public void setUp() throws IOException {git add
+        driver = Browser.getDriver("chrome");
         FileInputStream fis = new FileInputStream(new File(USER_DIR + PATH_TO_CONFIG_FILE));
         properties.load(fis);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void launchURL() {
         driver.get(properties.getProperty("baseURL"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void screenShotCapture(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
             CaptureScreenshot(result.getTestContext().getName() + "_" + result.getName());
         }
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }
