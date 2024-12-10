@@ -29,7 +29,7 @@ public class BaseTest {
 
 
     @BeforeTest(alwaysRun = true)
-    public void setUp() throws IOException {git add
+    public void setUp() throws IOException {
         driver = Browser.getDriver("chrome");
         FileInputStream fis = new FileInputStream(new File(USER_DIR + PATH_TO_CONFIG_FILE));
         properties.load(fis);
