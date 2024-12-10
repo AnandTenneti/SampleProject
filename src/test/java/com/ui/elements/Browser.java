@@ -16,7 +16,7 @@ public class Browser {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--start-maximized");
+                options.addArguments("--headless");
                 driver = new ChromeDriver(options);
                 break;
             case "firefox":
