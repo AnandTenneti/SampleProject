@@ -6,10 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +17,7 @@ import java.util.Properties;
 
 import static com.dataprovider.TestData.PATH_TO_CONFIG_FILE;
 import static com.dataprovider.TestData.USER_DIR;
+import static java.lang.System.getProperty;
 
 public class BaseTest {
     public static WebDriver driver;
@@ -28,9 +26,10 @@ public class BaseTest {
     Properties properties = new Properties();
 
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp() throws IOException {
-        driver = Browser.getDriver("chrome");
+        String browserName = getProperty("browser") != null ? getProperty("browser") : "chrome";
+        driver = Browser.getDriver(browserName);
         FileInputStream fis = new FileInputStream(new File(USER_DIR + PATH_TO_CONFIG_FILE));
         properties.load(fis);
     }
@@ -47,7 +46,7 @@ public class BaseTest {
         }
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }

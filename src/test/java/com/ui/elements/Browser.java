@@ -4,12 +4,28 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Browser {
     static WebDriver driver;
+    public String browserName;
+
+    public Browser(String browserName) {
+        this.browserName = browserName;
+
+        if (browserName.equalsIgnoreCase("chrome"))
+            this.driver = new ChromeDriver();
+
+        if (browserName.equalsIgnoreCase("firefox"))
+            this.driver = new FirefoxDriver();
+
+        if (browserName.equalsIgnoreCase("edge"))
+            this.driver = new EdgeDriver();
+
+    }
 
     public static WebDriver getDriver(String browserName) {
         switch (browserName) {
