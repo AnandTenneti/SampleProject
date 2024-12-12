@@ -21,13 +21,13 @@ public class AutoWaitPage {
     }
 
     @FindBy(id = "applyButton3")
-    private WebElement button1;
+    private WebElement applyButton3s;
 
     @FindBy(id = "applyButton5")
-    private WebElement button2;
+    private WebElement applyButton5s;
 
     @FindBy(id = "applyButton10")
-    private WebElement button3;
+    private WebElement applyButton10s;
 
     @FindBy(id = "element-type")
     private WebElement elementType;
@@ -54,19 +54,38 @@ public class AutoWaitPage {
     public boolean isElementDisplayed(String tagName) {
         System.out.println(tagName + "#target");
         return driver.findElement(By.cssSelector("#target")).isDisplayed();
+    }
 
+    public void actionOnElement() {
+        driver.findElement(By.cssSelector("#target")).sendKeys("Hello , input box");
+    }
+
+    public void actionOnElement(String elementType) {
+        switch (elementType) {
+            case "input":
+                driver.findElement(By.cssSelector("#target")).sendKeys("Hello");
+                break;
+            case "select":
+                Select select = new Select(driver.findElement(By.cssSelector("#target")));
+                select.selectByIndex(1);
+                break;
+//            case "textarea":
+//                driver.findElement(By.cssSelector("target")));
+//
+//                break;
+        }
     }
 
     public void clickOnApplyButton(int choice) {
         switch (choice) {
             case 1:
-                button1.click();
+                applyButton3s.click();
                 break;
             case 2:
-                button2.click();
+                applyButton5s.click();
                 break;
             case 3:
-                button3.click();
+                applyButton10s.click();
                 break;
         }
     }
