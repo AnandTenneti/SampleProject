@@ -1,11 +1,13 @@
 package com.ui.elements;
 
 
+import com.dataprovider.DataSupplier;
 import com.dataprovider.TestData.WaitTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.AnimatedButtonPage;
 import pages.AutoWaitPage;
@@ -78,7 +80,33 @@ public class UiElementsTest6 extends BaseTest {
         Assert.assertTrue(awPage.getStatusMessage().equalsIgnoreCase(
                 "Target element state restored."), "Messages are " +
                 "not same");
+    }
 
+
+    @Test(priority = 4, dataProvider = "elementTypeTestdata", dataProviderClass = DataSupplier.class)
+    public void test_autoWait_1(String elementType) {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(2));
+        Assert.assertEquals(driver.getTitle(), links.get(2), "Title is not matching");
+        AutoWaitPage awPage = new AutoWaitPage(driver);
+        awPage.selectElementType(elementType);
+        String tagName = awPage.getTagName();
+        System.out.println(tagName);
+        Assert.assertEquals(elementType.toLowerCase(), awPage.getTagName(),
+                "Both are not equal");
+        Assert.assertTrue(awPage.isElementDisplayed(tagName));
+        //awPage.actionOnElement();
+        awPage.actionOnElement(elementType.toLowerCase());
+        awPage.clickOnApplyButton(1);
+        String status = "Target element settings applied for 3 seconds.";
+        Assert.assertEquals(awPage.getStatusMessage(), status, "Messages are not same");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime.WAIT_FOR_3S.getWaitTime()));
+        wait.until(ExpectedConditions
+                .textToBePresentInElementLocated(
+                        By.id("opstatus"), "Target element state restored."));
+        Assert.assertTrue(awPage.getStatusMessage().equalsIgnoreCase(
+                "Target element state restored."), "Messages are " +
+                "not same");
     }
 
 
