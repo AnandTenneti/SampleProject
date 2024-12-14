@@ -24,9 +24,7 @@ The purpose of this website is to provide a platform for sharpening UI test auto
 Use it to practice with your test automation tool. Use it to learn test automation techniques.
 
 Different automation pitfalls appearing in modern web applications are described and emulated below.
-<h2>Languages</h2>
-<h3>Page Objects</h3>
-<h3>Page Objects</h3>    
+
 <h3>Project Structure</h3>
 
 SampleProject<br>
@@ -34,8 +32,13 @@ SampleProject<br>
 |--pages
 <h3>Folder Structure</h3>
 The project is organized in the following folder structure as shown below
+
 utils:
 All the utility functions are defined
+
+pom.xml
+All the dependencies of the project are specified within pom.xml file
+
 testng.xml
 
 pages: 
