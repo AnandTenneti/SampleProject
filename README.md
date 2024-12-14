@@ -67,17 +67,19 @@ Within this folder, screenshots of the pages of failed test cases are stored
    
       -- run the whole test suite
              
-                mvn clean test
+          mvn clean test
 
       -- run all the tests in a class
 
-           mvn clean test -Dtest=UiElementsTest6 
+          mvn clean test -Dtest=UiElementsTest6 
    
-To run a single test in a class
-   mvn clean test -Dtest=UiElementsTest6#test_autoWait
+      -- run a single test in a class
+          
+          mvn clean test -Dtest=UiElementsTest6#test_autoWait
 
-To run tests in a specified browser
-   mvn clean test -Dbrowser=firefox
+      -- run tests in a specified browser
+   
+          mvn clean test -Dbrowser=firefox
 
    By default, if no browser is specified in the command line, the tests will run in chromw
    browser in headless mode
