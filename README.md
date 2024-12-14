@@ -62,12 +62,11 @@ Within this folder, screenshots of the pages of failed test cases are stored
    install dependencies, and configure WebDriver.
 4. **Usage**: Provides instructions on how to write test cases and configure the project for
    different browsers.
-5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
-   The tests are run using the maven commands
+   5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
+      The tests are run using the maven commands
    
-To run the whole test suite
-
-   mvn clean test
+      -- run the whole test suite
+             mvn clean test
 
 To run all the tests in a class
 
