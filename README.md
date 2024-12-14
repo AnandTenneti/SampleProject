@@ -66,11 +66,12 @@ Within this folder, screenshots of the pages of failed test cases are stored
       The tests are run using the maven commands
    
       -- run the whole test suite
-             mvn clean test
+             
+                mvn clean test
 
-To run all the tests in a class
+      -- run all the tests in a class
 
-   mvn clean test -Dtest=UiElementsTest6 
+           mvn clean test -Dtest=UiElementsTest6 
    
 To run a single test in a class
    mvn clean test -Dtest=UiElementsTest6#test_autoWait
