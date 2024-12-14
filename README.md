@@ -50,29 +50,8 @@ Within this folder, the tests are written
 
 Screenshots:
 Within this folder, screenshots of the pages of failed test cases are stored 
-<h3>Page Objects</h3>
-<h3></h3>
-<table border-width=0>
-  <tbody>
-    <tr><td><a href="#">Dynamic ID</a></td><td><a href="#">Class Attribute</a></td><td><a href="#">Hidden Layers</a></td><td><a href="#">Load Delay</a></td></tr>
-    <tr><td><a href="#">Ajax Data</a></td><td><a href="#">Client Side Delay</a></td><td><a href="#">Click</a></td><td><a href="#">Text Input</a></td></tr>
-     <tr><td><a href="#">Scrollbars</a></td><td><a href="#">Dynamic Table</a></td><td><a href="#">Verify Text</a></td><td><a href="#">Progress Bar</a></td></tr>
-     <tr><td><a href="#">Visibility</a></td><td><a href="#">Sample App</a></td><td><a href="#">Mouse Over</a></td><td><a href="#">Non-Breaking Space</a></td></tr>
-     <tr><td><a href="#" style="color:#FF0000;">Overlapped Element</a></td><td><a href="#">Shadow DOM</a></td><td><a href="#">Alerts</a></td><td><a href="#">File Upload</a></td></tr>
-     <tr><td><a href="#">Animated Button</a></td><td><a href="#">Disabled Input</a></td><td><a href="#" style="color: black; text-decoration: underline;text-decoration-style: dotted;">Auto Wait</a></td></tr>
-  </tbody>
-</table>
-<table align="right">
-  <tr>
-  <td>Total No. of Test Cases</td><td>23</td>
-  </tr>
-   <tr>
-  <td>No. of Test Cases Executed</td><td>12</td>
-  </tr>
-   <tr>
-  <td>No. of Test Cases Remaining</td><td>11</td>
-  </tr>
-</table>
+
+
 
 1. **Project Overview**: A brief introduction to the project and what it does.
 2. **Prerequisites**: Requirements that the user needs to have installed.
@@ -85,14 +64,21 @@ Within this folder, screenshots of the pages of failed test cases are stored
    different browsers.
 5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
    The tests are run using the maven commands
-   To run the whole test suite
+   
+To run the whole test suite
+
    mvn clean test
-   To run all the tests in a class
-   mvn clean test -Dtest=UiElementsTest6
-   To run a single test in a class
+
+To run all the tests in a class
+
+   mvn clean test -Dtest=UiElementsTest6 
+   
+To run a single test in a class
    mvn clean test -Dtest=UiElementsTest6#test_autoWait
-   To run tests in a specified browser
+
+To run tests in a specified browser
    mvn clean test -Dbrowser=firefox
-   By defualt, if no browser is specified in the command line, the tests will run in chromw
+
+   By default, if no browser is specified in the command line, the tests will run in chromw
    browser in headless mode
 6. **Test Reporting**: Explains where users can find the test results and reports.
