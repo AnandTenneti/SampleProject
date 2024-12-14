@@ -62,24 +62,24 @@ Within this folder, screenshots of the pages of failed test cases are stored
    install dependencies, and configure WebDriver.
 4. **Usage**: Provides instructions on how to write test cases and configure the project for
    different browsers.
-   5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
-      The tests are run using the maven commands
+5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
+   The tests are run using the maven commands
    
-      -- run the whole test suite
+   -- run the whole test suite
              
-          mvn clean test
+       mvn clean test
 
-      -- run all the tests in a class
+   -- run all the tests in a class
 
-          mvn clean test -Dtest=UiElementsTest6 
+       mvn clean test -Dtest=UiElementsTest6 
    
-      -- run a single test in a class
+   -- run a single test in a class
           
-          mvn clean test -Dtest=UiElementsTest6#test_autoWait
+       mvn clean test -Dtest=UiElementsTest6#test_autoWait
 
-      -- run tests in a specified browser
+   -- run tests in a specified browser
    
-          mvn clean test -Dbrowser=firefox
+       mvn clean test -Dbrowser=firefox
 
    By default, if no browser is specified in the command line, the tests will run in chromw
    browser in headless mode
