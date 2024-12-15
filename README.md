@@ -8,6 +8,14 @@ Playground</a>, different scenarios are provided for automation.
 Designed and implemented an automation framework covering the scenarios using WebDriver and Java
 **
 
+Installation Steps
+
+1. Fork the repository
+
+2. Clone the repository, i.e download your copy of the repository to your local machine
+
+       git clone https://github.com/AnandTenneti/SampleProject.git
+
 
 
 
