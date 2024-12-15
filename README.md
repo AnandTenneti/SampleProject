@@ -31,10 +31,11 @@ Designed and implemented an automation framework covering the scenarios using We
 <h2>Languages and Frameworks</h2>
 The project uses the following:
  
+
    * Java11 as the programming language
    * Selenium WebDriver as the browser automation framework using Java binding
-   * TestNG as the testing framework
-   * Maven as the Java build tool
+   * <a href="https://testng.org/">TestNG</a> as the testing framework
+   * <a href="https://maven.apache.org/">Maven</a> as the Java build tool
    * IntellijIdea as the IDE
 
 
