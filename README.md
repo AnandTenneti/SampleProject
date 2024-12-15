@@ -54,12 +54,29 @@ Within this folder, screenshots of the pages of failed test cases are stored
 
 
 1. **Project Overview**: A brief introduction to the project and what it does.
-2. **Prerequisites**: Requirements that the user needs to have installed.
+
+Implemented automation using Webdriver and Java for validating the UI elements 
+through different scenarios
+3. i. Fork the repository.
+
+   ii. Clone, i.e, download your copy of the repository to your local machine using
+        git clone https://github.com/AnandTenneti
+          /SampleProject.git
+   
+4. Import the project in IntelliJ IDEA.
+   Make your desired changes.
+   Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example ./gradlew test -Dbrowser=firefox -Dheadless=false to run all the tests using the firefox browser in headful mode.
+   To see the report, go to the testoutput folder in the project root and then go to the report folder.
+3. 
+4. 
+5. 
+6. **Prerequisites**: Requirements that the user needs to have installed.
      Java
      WebDriver
      TestNG
 3. **Setup**: Instructions on how to set up the project, including how to clone the repository,
    install dependencies, and configure WebDriver.
+
 4. **Usage**: Provides instructions on how to write test cases and configure the project for
    different browsers.
 5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
