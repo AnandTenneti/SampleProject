@@ -20,12 +20,13 @@ Installation Steps
 
 4. Make your desired changes
 
-5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example ./gradlew test -Dbrowser=firefox -Dheadless=false to run all the tests using the firefox browser in headful mode.
+5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal
+ to run the tests.For example , to run all the tests using the firefox browser in headful mode
+   
+       mvn clean test -Dbrowser=firefox 
+.
    
 6. To see the report, go to the testoutput folder in the project root and then go to the report folder.
-
-
-
 
 
 
@@ -73,7 +74,7 @@ Within this folder, screenshots of the pages of failed test cases are stored
 
 1. **Project Overview**: A brief introduction to the project and what it does.
 
-Implemented automation using Webdriver and Java for validating the UI elements 
+Implemented automation using WebDriver and Java for validating the UI elements 
 through different scenarios
 
    
