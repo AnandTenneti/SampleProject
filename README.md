@@ -20,6 +20,10 @@ Installation Steps
 
 4. Make your desired changes
 
+5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example ./gradlew test -Dbrowser=firefox -Dheadless=false to run all the tests using the firefox browser in headful mode.
+   
+6. To see the report, go to the testoutput folder in the project root and then go to the report folder.
+
 
 
 
