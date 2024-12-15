@@ -17,18 +17,7 @@ Designed and implemented an automation framework covering the scenarios using We
 
 
 
-Using this reference site  <a href="http://uitestingplayground.com/">UI Test Automation 
-Playground</a>, designed and implemented an UI automation framework using WebDriver and Java for the different UI elements provided in different scenarios 
-In this reference site <a href="http://uitestingplayground.com/">UI Test Automation 
-Playground</a>,there are different UI automation scenarios provided for which the automation 
-test cases have been written using Selenium WebDriver and Java using Maven as the build tool and 
-TestNG  
-**The purpose of this website is to provide a platform for sharpening UI test automation 
-skills. 
-Use it to practice with your test automation tool. Use it to learn test automation techniques.
-Different automation pitfalls appearing in modern web applications are described and emulated 
-below.**
-**
+
 It sounds like you're working on a UI automation testing project that involves creating automated scripts using Java and WebDriver (likely Selenium WebDriver). If you'd like help with any specific aspect of your project—like writing test scripts, optimizing tests, handling locators, dealing with dynamic elements, or setting up the framework—feel free to ask!
 
 For example, if you're starting fresh, a basic framework might include:
