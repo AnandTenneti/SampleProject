@@ -16,6 +16,9 @@ Installation Steps
 
        git clone https://github.com/AnandTenneti/SampleProject.git
 
+3. Import the changes in IntelliJIdea
+
+4. Make your desired changes
 
 
 
