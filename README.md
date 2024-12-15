@@ -8,7 +8,7 @@ Playground</a>, different scenarios are provided for automation.
 Designed and implemented an automation framework covering the scenarios using WebDriver and Java
 **
 
-Installation Steps
+<h2>Installation Steps</h2>
 
 1. Fork the repository
 
@@ -23,10 +23,19 @@ Installation Steps
 5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal
  to run the tests.For example , to run all the tests using the firefox browser in headful mode
    
-       mvn clean test -Dbrowser=firefox 
-.
+       mvn clean test -Dbrowser=firefox
    
 6. To see the report, go to the testoutput folder in the project root and then go to the report folder.
+
+
+<h2>Languages and Frameworks</h2>
+The project uses the following:
+ 
+    Java11 as the programming language
+    Selenium WebDriver as the browser automation framework using Java binding
+    TestNG as the testing framework
+    Maven as the Java build tool
+    IntellijIdea as the IDE
 
 
 
