@@ -38,12 +38,13 @@ The project is organized in the following folder structure as shown below
 utils:
 All the utility functions are defined
 
-pom.xml
+<b>pom.xml</b>
 All the dependencies of the project are specified within pom.xml file
 
 testng.xml
 
-pages: 
+<b>pages:</b> 
+
 Within this folder, all the pages and the elements within the pages and the actions/functions of 
 each page are provided
 
