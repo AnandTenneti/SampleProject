@@ -75,19 +75,9 @@ Within this folder, screenshots of the pages of failed test cases are stored
 
 Implemented automation using Webdriver and Java for validating the UI elements 
 through different scenarios
-3. i. Fork the repository.
 
-   ii. Clone, i.e, download your copy of the repository to your local machine using
-        git clone https://github.com/AnandTenneti
-          /SampleProject.git
    
-4. Import the project in IntelliJ IDEA.
-   Make your desired changes.
-   Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example ./gradlew test -Dbrowser=firefox -Dheadless=false to run all the tests using the firefox browser in headful mode.
-   To see the report, go to the testoutput folder in the project root and then go to the report folder.
-3. 
-4. 
-5. 
+ 
 6. **Prerequisites**: Requirements that the user needs to have installed.
      Java
      WebDriver
