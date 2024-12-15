@@ -1,5 +1,22 @@
 <h1>UI Test Automation Playground</h1>
 <h2>Introduction</h2>
+
+**
+In the reference site  <a href="http://uitestingplayground.com/">UI Test Automation 
+Playground</a>, different scenarios are provided for automation. 
+
+Designed and implemented an automation framework covering the scenarios using WebDriver and Java
+**
+
+
+
+
+
+
+
+
+
+
 Using this reference site  <a href="http://uitestingplayground.com/">UI Test Automation 
 Playground</a>, designed and implemented an UI automation framework using WebDriver and Java for the different UI elements provided in different scenarios 
 In this reference site <a href="http://uitestingplayground.com/">UI Test Automation 
