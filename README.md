@@ -27,12 +27,6 @@ TestNG or JUnit for managing test cases and assertions.
 Maven or Gradle for dependency management.
 Logging and Reporting (e.g., using Log4j or ExtentReports).
 
-**
-The purpose of this website is to provide a platform for sharpening UI test automation skills.
-Use it to practice with your test automation tool. Use it to learn test automation techniques.
-
-Different automation pitfalls appearing in modern web applications are described and emulated below.
-
 <h3>Project Structure</h3>
 
 SampleProject<br>
