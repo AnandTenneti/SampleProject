@@ -1,6 +1,7 @@
 package com.ui.elements;
 
 import com.dataprovider.DataSupplier;
+import com.dataprovider.ExcelDataSupplier;
 import org.openqa.selenium.WebElement;
 import pages.*;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class UiElementsTest4 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = "smoke")
     public void test_visibility() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -34,7 +35,8 @@ public class UiElementsTest4 extends BaseTest {
      * @param username can use any of the alphanumeric values
      *                 and the password value is constant
      */
-    @Test(priority = 2, dataProvider = "loginTestData", dataProviderClass = DataSupplier.class)
+    @Test(priority = 2, dataProvider = "loginTestData", dataProviderClass = DataSupplier.class,
+            groups = "validation")
     public void test_sampleApp(String username) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -45,6 +47,29 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(loginButtonText, "Log In", "Button text is not matching");
         samplePage.setUsername(username);
         samplePage.setPassword();
+        samplePage.clickOnLoginButton();
+        String loginMessage = samplePage.getLoginStatusText();
+        String actualLoginMessage = "Welcome, " + username + "!";
+        Assert.assertEquals(loginMessage, actualLoginMessage, "Both messages are not matching");
+        loginButtonText = samplePage.getLoginButtonText();
+        Assert.assertEquals(loginButtonText, "Log Out", "Button text is not matching");
+        samplePage.clickOnLoginButton();
+        String logoutMessage = samplePage.getLoginStatusText();
+        Assert.assertEquals(logoutMessage, "User logged out.", "logout message is incorrect");
+    }
+
+    @Test(priority = 3, dataProvider = "excelLoginData", dataProviderClass =
+            ExcelDataSupplier.class)
+    public void test_sampleApp_using_excelData(String username,String password) {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickOnLink(links.get(1));
+        Assert.assertEquals(driver.getTitle(), links.get(1), "Title is not matching");
+
+        SampleAppPage samplePage = new SampleAppPage(driver);
+        String loginButtonText = samplePage.getLoginButtonText();
+        Assert.assertEquals(loginButtonText, "Log In", "Button text is not matching");
+        samplePage.setUsername(username);
+        samplePage.setPassword(password);
         samplePage.clickOnLoginButton();
         String loginMessage = samplePage.getLoginStatusText();
         String actualLoginMessage = "Welcome, " + username + "!";
@@ -88,7 +113,7 @@ public class UiElementsTest4 extends BaseTest {
     }
 
     @Test(priority = 4)
-    public void test_nbsp() {
+    public void test_nonBreakingSpace() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Title is not matching");

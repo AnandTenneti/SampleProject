@@ -26,13 +26,16 @@ public class SampleAppPage {
     private WebElement loginStatus;
 
     public void setUsername(String username) {
-
         usernameField.clear();
         usernameField.sendKeys(username);
     }
 
     public void setPassword() {
         passwordField.sendKeys("pwd");
+    }
+
+    public void setPassword(String password) {
+        passwordField.sendKeys(password);
     }
 
     public void clickOnLoginButton() {
