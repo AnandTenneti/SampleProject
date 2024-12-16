@@ -81,12 +81,6 @@ Screenshots:
 Within this folder, screenshots of the pages of failed test cases are stored 
 
 
-
-1. **Project Overview**: A brief introduction to the project and what it does.
-
-Implemented automation using WebDriver and Java for validating the UI elements 
-through different scenarios
-
    
  
 6. **Prerequisites**: Requirements that the user needs to have installed.
