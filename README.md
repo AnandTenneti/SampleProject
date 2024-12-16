@@ -38,28 +38,11 @@ The project uses the following:
    * <a href="https://maven.apache.org/">Maven</a> as the Java build tool
    * IntellijIdea as the IDE
 
-
-
-
-
-
-
-It sounds like you're working on a UI automation testing project that involves creating automated scripts using Java and WebDriver (likely Selenium WebDriver). If you'd like help with any specific aspect of your project—like writing test scripts, optimizing tests, handling locators, dealing with dynamic elements, or setting up the framework—feel free to ask!
-
-For example, if you're starting fresh, a basic framework might include:
-
-Page Object Model (POM) for organizing your locators and methods.
-TestNG or JUnit for managing test cases and assertions.
-Maven or Gradle for dependency management.
-Logging and Reporting (e.g., using Log4j or ExtentReports).
-
-<h3>Project Structure</h3>
-
-SampleProject<br>
-|<br>
-|--pages
 <h3>Folder Structure</h3>
 The project is organized in the following folder structure as shown below
+
+
+
 
 utils:
 All the utility functions are defined
