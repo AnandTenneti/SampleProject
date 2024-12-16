@@ -58,9 +58,15 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(logoutMessage, "User logged out.", "logout message is incorrect");
     }
 
+    /***
+     * In the sampleApp, we are verifying login success functionality
+     * @param username can use any of the alphanumeric values
+     * @param password value is constant
+     */
+
     @Test(priority = 3, dataProvider = "excelLoginData", dataProviderClass =
             ExcelDataSupplier.class)
-    public void test_sampleApp_using_excelData(String username,String password) {
+    public void test_sampleApp_using_excelData(String username, String password) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Title is not matching");
@@ -81,7 +87,7 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(logoutMessage, "User logged out.", "logout message is incorrect");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void test_mouseOver() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -112,7 +118,7 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void test_nonBreakingSpace() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
