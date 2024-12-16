@@ -2,9 +2,13 @@
 <suite name="UI Testing Playground Test Suite">
     <test name="UI Testing Playground- Regression test cases">
         <classes>
+            <class name="com.ui.elements.UiElementsTest1"/>
+            <class name="com.ui.elements.UiElementsTest2"/>
+            <class name="com.ui.elements.UiElementsTest3"/>
             <class name="com.ui.elements.UiElementsTest4"/>
+            <class name="com.ui.elements.UiElementsTest5"/>
+            <class name="com.ui.elements.UiElementsTest6"/>
         </classes>
     </test>
-
 </suite>
 
