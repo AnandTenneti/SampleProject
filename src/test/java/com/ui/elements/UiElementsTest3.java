@@ -31,11 +31,8 @@ public class UiElementsTest3 extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
-        //TODO
-        Thread.sleep(5000);
         DynamicTablePage page = new DynamicTablePage(driver);
-        String cpuValue = page.getValues("Firefox");
-        // System.out.println(cpuValue);
+        String cpuValue = page.getValues("Chrome");
         System.out.println(page.getLabelInMessage());
         Assert.assertTrue(page.getLabelInMessage().contains(cpuValue), "The values are not " +
                "matching");
