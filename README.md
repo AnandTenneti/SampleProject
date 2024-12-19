@@ -63,18 +63,6 @@ Within this folder, the tests are written
 Screenshots:
 Within this folder, screenshots of the pages of failed test cases are stored 
 
-
-   
- 
-6. **Prerequisites**: Requirements that the user needs to have installed.
-     Java
-     WebDriver
-     TestNG
-3. **Setup**: Instructions on how to set up the project, including how to clone the repository,
-   install dependencies, and configure WebDriver.
-
-4. **Usage**: Provides instructions on how to write test cases and configure the project for
-   different browsers.
 5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
    The tests are run using the maven commands
    
@@ -96,4 +84,8 @@ Within this folder, screenshots of the pages of failed test cases are stored
 
    By default, if no browser is specified in the command line, the tests will run in chromw
    browser in headless mode
-6. **Test Reporting**: Explains where users can find the test results and reports.
+6. **Test Reporting**: 
+
+   The reports for the automation test results can be viewed under the reports 
+   folder in the index.html file
+
