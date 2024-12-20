@@ -66,9 +66,8 @@ mentioned under
 dataprovider folder.
 Also, test cases that need data from the Excel file are also stored under the dataprovider folder 
 
-**reports:**
-
-The test results of the tests executed in the automation run are stored under the reports folder.
+**reports:** The test results of the tests executed in the automation run are stored under the 
+reports folder.
 
 
 **pom.xml**
