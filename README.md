@@ -64,6 +64,10 @@ Example:
 
 **dataprovider:**
 
+Test data for the test cases are provided through the DataProvider classes mentioned under 
+dataprovider folder.
+Also, test cases that need data from the Excel file are also stored under the dataprovider folder 
+
 **reports:**
 
 The test results of the tests executed in the automation run are stored under the reports folder.
