@@ -89,6 +89,7 @@ jobs:
         if: always()
         with:
           name: web-automation-report
-          path: reports/index.html
+          path: report.html
+          #reports/index.html
 #          extent/report_*.html
 
