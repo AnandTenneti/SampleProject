@@ -7,7 +7,7 @@ In the reference site  [UI Test Automation Playground](http://uitestingplaygroun
 Designed and implemented an automation framework covering the scenarios using WebDriver and Java
 **
 
-<h2>1. Installation Steps</h2>
+#### 1. Installation Steps
 
 * Fork the repository
 
@@ -28,7 +28,7 @@ Designed and implemented an automation framework covering the scenarios using We
 folder.
 
 
-<h2>2. Languages and Frameworks</h2>
+#### 2. Languages and Frameworks
 
 The project uses the following:
 
@@ -40,9 +40,7 @@ The project uses the following:
    * [Maven](https://maven.apache.org/) as the Java build tool
    * [IntelliJIdea](https://www.jetbrains.com/idea/) as the IDE
 
-<h2>3.Folder Structure</h2>
-
-The project is broadly organized in the following folder structure as shown below
+#### 3.Folder Structure The project is broadly organized in the following folder structure as shown below
 
 
 **pages:** 
@@ -73,16 +71,13 @@ reports folder.
 **pom.xml**
 All the dependencies of the project are specified within pom.xml file
 
-
-
-
 **Screenshots:**
 
 Screenshots of the failed test cases are captured and stored within the Screenshots folder under 
 a subfolder created for each run. This way, the screenshots are archived and can be viewed at a 
 later point of time
 
-<h2>4.Running Tests</h2> Describes how to execute the tests using Maven or an IDE.
+#### 4.Running Tests Describes how to execute the tests using Maven or an IDE.
    
 The tests are run using the maven commands
    
@@ -105,7 +100,7 @@ The tests are run using the maven commands
    By default, if no browser is specified in the command line, the tests will run in Chrome
    browser in headless mode
 
-6. **Test Reporting**: 
+#### 5.Test Reporting
 
    The reports for the automation test results can be viewed under the reports 
    folder in the index.html file
