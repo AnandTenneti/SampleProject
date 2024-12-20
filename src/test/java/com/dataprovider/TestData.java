@@ -1,7 +1,7 @@
 package com.dataprovider;
 
 public class TestData {
-
+public static final String BASE_URL= "http://uitestingplayground.com/";
     public static final String USER_DIR = System.getProperty("user.dir");
     public static final String PATH_TO_TEST_FILES_DIR = "/src/test/resources/testfiles/";
     public static final String PATH_TO_CONFIG_FILE = "/src/main/resources/config.properties";
