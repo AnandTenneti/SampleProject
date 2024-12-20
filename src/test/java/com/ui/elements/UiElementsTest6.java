@@ -25,7 +25,7 @@ public class UiElementsTest6 extends BaseTest {
             Arrays.asList("Animated Button", "Disabled Input", "Auto Wait"));
 
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "wait for the animation to stop before clicking a button")
     public void test_animatedButton() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -41,7 +41,7 @@ public class UiElementsTest6 extends BaseTest {
         Assert.assertTrue(statusMessage.contains(classNameOfMovingTargetButton));
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, description = "wait for the edit field to become enabled")
     public void test_disabledInput() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -59,32 +59,9 @@ public class UiElementsTest6 extends BaseTest {
     }
 
 
-    @Test(priority = 3)
-    public void test_autoWait() {
-        HomePage homePage = new HomePage(driver);
-        homePage.clickOnLink(links.get(2));
-        Assert.assertEquals(driver.getTitle(), links.get(2), "Title is not matching");
-        AutoWaitPage awPage = new AutoWaitPage(driver);
-        awPage.selectElementType(ElementType.SELECT.getDescription());
-        String tagName = awPage.getTagName();
-        System.out.println(tagName);
-        Assert.assertEquals(ElementType.SELECT.getDescription().toLowerCase(), awPage.getTagName(), "Both are not equal");
-        Assert.assertTrue(awPage.isElementDisplayed(tagName));
-        awPage.clickOnApplyButton(1);
-        String status = "Target element settings applied for 3 seconds.";
-        Assert.assertEquals(awPage.getStatusMessage(), status, "Messages are not same");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WaitTime.WAIT_FOR_3S.getWaitTime()));
-        wait.until(ExpectedConditions
-                .textToBePresentInElementLocated(
-                        By.id("opstatus"), "Target element state restored."));
-        Assert.assertTrue(awPage.getStatusMessage().equalsIgnoreCase(
-                "Target element state restored."), "Messages are " +
-                "not same");
-    }
-
-
-    @Test(priority = 4, dataProvider = "elementTypeTestdata", dataProviderClass = DataSupplier.class)
-    public void test_autoWait_1(String elementType) {
+    @Test(priority = 4, dataProvider = "elementTypeTestdata", dataProviderClass =
+            DataSupplier.class, description = "wait for the element to become intractable")
+    public void test_autoWait(String elementType) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Title is not matching");
