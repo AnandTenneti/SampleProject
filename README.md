@@ -57,6 +57,13 @@ be performed are written in Visibility page
 
 **tests:**
 
+The tests for each scenario are maintained under elements folder. Each test contains 4 scenarios 
+
+Example:
+ 
+  UiElementsTest1 test contains 4 scenarios namely test_dynamicID, test_classAttribute, 
+  test_hiddenLayers, test_loadDelay
+
 **dataprovider:**
 
 **reports:**
@@ -64,15 +71,10 @@ be performed are written in Visibility page
 The test results of the tests executed in the automation run are stored under the reports folder.
 
 
-
-
-utils:
-All the utility functions are defined
-
-<b>pom.xml</b>
+**pom.xml**
 All the dependencies of the project are specified within pom.xml file
 
-testng.xml
+
 
 
 **Screenshots:**
@@ -101,8 +103,9 @@ The tests are run using the maven commands
    
        mvn clean test -Dbrowser=firefox
 
-   By default, if no browser is specified in the command line, the tests will run in chromw
+   By default, if no browser is specified in the command line, the tests will run in Chrome
    browser in headless mode
+
 6. **Test Reporting**: 
 
    The reports for the automation test results can be viewed under the reports 
