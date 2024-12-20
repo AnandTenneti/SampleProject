@@ -49,7 +49,6 @@ public class UiElementsTest2 extends BaseTest {
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
         // TODO
-
     }
 
     @Test(testName = "test_textInput", priority = 5, description="Entering text into an edit " +
