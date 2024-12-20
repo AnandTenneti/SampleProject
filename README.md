@@ -71,13 +71,6 @@ All the dependencies of the project are specified within pom.xml file
 
 testng.xml
 
-<b>pages:</b> 
-
-Within this folder, all the pages and the elements within the pages and the actions/functions of 
-each page are provided
-
-tests:
-Within this folder, the tests are written 
 
 Screenshots:
 Within this folder, screenshots of the pages of failed test cases are stored 
