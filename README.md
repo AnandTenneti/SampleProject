@@ -72,10 +72,13 @@ All the dependencies of the project are specified within pom.xml file
 testng.xml
 
 
-Screenshots:
-Within this folder, screenshots of the pages of failed test cases are stored 
+**Screenshots:**
 
-<h2>Running Tests</h2> Describes how to execute the tests using Maven or an IDE.
+Screenshots of the failed test cases are captured and stored within the Screenshots folder under 
+a subfolder created for each run. This way, the screenshots are archived and can be viewed at a 
+later point of time
+
+<h2>4.Running Tests</h2> Describes how to execute the tests using Maven or an IDE.
    
 The tests are run using the maven commands
    
