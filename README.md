@@ -51,17 +51,16 @@ Each individual scenario in the website is marked as one page. Locators and meth
 scenario are added in the page
 
   Example:
-     The scenario Visibility is considered as one page and the elements in the 
+     _The scenario Visibility is considered as one page and the elements in the 
  Visibility page are identified with locators and the corresponding functions for the actions to 
-be performed are written in Visibility page
+be performed are written in Visibility page_
 
 **tests:** The tests for each scenario are maintained under elements folder. Each test contains 
 4 scenarios 
 
 Example:
- 
-  UiElementsTest1 test contains 4 scenarios namely test_dynamicID, test_classAttribute, 
-  test_hiddenLayers, test_loadDelay
+  _UiElementsTest1 test contains 4 scenarios namely test_dynamicID, test_classAttribute, 
+  test_hiddenLayers, test_loadDelay_
 
 **dataprovider:**
 
