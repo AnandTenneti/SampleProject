@@ -2,8 +2,7 @@
 <h2>Introduction</h2>
 
 **
-In the reference site  <a href="http://uitestingplayground.com/">UI Test Automation 
-Playground</a>, different scenarios are provided for automation. 
+In the reference site  [UI Test Automation Playground](http://uitestingplayground.com/), different scenarios are provided for automation. 
 
 Designed and implemented an automation framework covering the scenarios using WebDriver and Java
 **
@@ -62,9 +61,8 @@ Example:
   _UiElementsTest1 test contains 4 scenarios namely test_dynamicID, test_classAttribute, 
   test_hiddenLayers, test_loadDelay_
 
-**dataprovider:**
-
-Test data for the test cases are provided through the DataProvider classes mentioned under 
+**dataprovider:** Test data for the test cases are provided through the DataProvider classes 
+mentioned under 
 dataprovider folder.
 Also, test cases that need data from the Excel file are also stored under the dataprovider folder 
 
