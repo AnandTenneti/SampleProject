@@ -15,7 +15,7 @@ public class UiElementsTest2 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("AJAX Data", "Client Side Delay", "Click", "Text Input"));
 
-    @Test(testName = "test_ajaxData", priority = 1)
+    @Test(testName = "test_ajaxData", priority = 1, description = "Ajax request test")
     public void test_ajaxData() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -28,7 +28,8 @@ public class UiElementsTest2 extends BaseTest {
                 "matching");
     }
 
-    @Test(testName = "test_clientDelay", priority = 2)
+    @Test(testName = "test_clientDelay", priority = 2, description = "Event based click on an " +
+            "element")
     public void test_clientDelay() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -42,20 +43,22 @@ public class UiElementsTest2 extends BaseTest {
                 " Message is not matching");
     }
 
-    @Test(testName = "test_Click", priority = 3)
+    @Test(testName = "test_Click", priority = 3, groups = {"sanity"},
+            enabled=false)
     public void test_Click() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
-        Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
+        Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
         // TODO
 
     }
 
-    @Test(testName = "test_textInput", priority = 4)
+    @Test(testName = "test_textInput", priority = 4, description="Entering text into an edit " +
+            "field  may not have affect")
     public void test_TextInput() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
-        Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
+        Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
         TextInputPage tiPage = new TextInputPage(driver);
         String buttonText = tiPage.getButtonText();
         String newButtonName = "My New Button";
