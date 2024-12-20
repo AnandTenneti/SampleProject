@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <suite name="UI Testing Playground Test Suite">
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <include name="sanity"/>-->
+<!--        </run>-->
+<!--    </groups>-->
     <test name="UI Testing Playground- Regression test cases">
+        <groups>
+<!--            <run>-->
+<!--                <include name="smoke"/>-->
+<!--            </run>-->
+        </groups>
         <classes>
             <class name="com.ui.elements.UiElementsTest1"/>
+        </classes>
+    </test>
+    <test name="UI Automation Test cases">
+        <classes>
             <class name="com.ui.elements.UiElementsTest2"/>
+        </classes>
+    </test>
+    <test name="UI Automation Test cases-3">
+        <classes>
             <class name="com.ui.elements.UiElementsTest3"/>
+        </classes>
+    </test>
+    <test name="UI Automation Test cases-4">
+        <classes>
             <class name="com.ui.elements.UiElementsTest4"/>
+
+        </classes>
+    </test>
+    <test name="UI Automation Test cases-5">
+        <classes>
             <class name="com.ui.elements.UiElementsTest5"/>
+        </classes>
+    </test>
+    <test name="UI Automation Test cases-6">
+        <classes>
             <class name="com.ui.elements.UiElementsTest6"/>
         </classes>
     </test>
