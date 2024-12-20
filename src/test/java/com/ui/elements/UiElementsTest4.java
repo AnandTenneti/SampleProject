@@ -15,7 +15,7 @@ public class UiElementsTest4 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));
 
-    @Test(priority = 1, description="test visibility of an element on screen")
+    @Test(priority = 1, description = "test visibility of an element on screen")
     public void test_visibility() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -60,8 +60,10 @@ public class UiElementsTest4 extends BaseTest {
 
     /***
      * In the sampleApp, we are verifying login success functionality
+     * with the details from an Excel file
      * @param username can use any of the alphanumeric values
      * @param password value is constant
+     *
      */
 
     @Test(priority = 3, dataProvider = "excelLoginData", dataProviderClass =
@@ -118,7 +120,7 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
     }
 
-    @Test(priority = 5, description="Test non-breaking space")
+    @Test(priority = 5, description = "Test non-breaking space")
     public void test_nonBreakingSpace() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
