@@ -33,11 +33,11 @@ folder.
 The project uses the following:
  
 
-   * Java11 as the programming language
-   * Selenium WebDriver as the browser automation framework using Java binding
-   * <a href="https://testng.org/">TestNG</a> as the testing framework
-   * <a href="https://maven.apache.org/">Maven</a> as the Java build tool
-   * IntellijIdea as the IDE
+   * [Java](https://www.java.com/en/) as the programming language
+   * [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) as the browser automation framework using Java binding
+   * [TestNG](https://testng.org/) as the testing framework
+   * [Maven](https://maven.apache.org/) as the Java build tool
+   * [IntelliJIdea](https://www.jetbrains.com/idea/) as the IDE
 
 <h2>3.Folder Structure</h2>
 
