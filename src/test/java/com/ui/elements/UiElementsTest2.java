@@ -43,8 +43,7 @@ public class UiElementsTest2 extends BaseTest {
                 " Message is not matching");
     }
 
-    @Test(testName = "test_Click", priority = 3, groups = {"sanity"},
-            enabled=false)
+    @Test(testName = "test_Click", priority = 4, enabled=false)
     public void test_Click() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -53,7 +52,7 @@ public class UiElementsTest2 extends BaseTest {
 
     }
 
-    @Test(testName = "test_textInput", priority = 4, description="Entering text into an edit " +
+    @Test(testName = "test_textInput", priority = 5, description="Entering text into an edit " +
             "field  may not have affect")
     public void test_TextInput() {
         HomePage homePage = new HomePage(driver);
