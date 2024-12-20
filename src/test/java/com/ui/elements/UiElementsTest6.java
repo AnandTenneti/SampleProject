@@ -72,7 +72,6 @@ public class UiElementsTest6 extends BaseTest {
         Assert.assertEquals(elementType.toLowerCase(), awPage.getTagName(),
                 "Both are not equal");
         Assert.assertTrue(awPage.isElementDisplayed(tagName));
-        //awPage.actionOnElement();
         awPage.actionOnElement(elementType.toLowerCase());
         awPage.clickOnApplyButton(1);
         String status = "Target element settings applied for 3 seconds.";
