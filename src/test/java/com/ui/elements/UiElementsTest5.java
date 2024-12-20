@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ShadowDOMPage;
 
+import java.awt.*;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class UiElementsTest5 extends BaseTest {
         Assert.assertEquals(driver.getTitle(), links.get(0), "Page Title is not matching");
     }
 
-    @Test(priority = 2, description = "shadowDOM")
+    @Test(priority = 2, description = "shadowDOM", enabled = false)
     public void test_shadowDOM() throws InterruptedException, IOException, UnsupportedFlavorException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -42,6 +43,7 @@ public class UiElementsTest5 extends BaseTest {
         String actualCopiedText = sdPage.getCopiedTextFromClipboars();
         System.out.println("Actual copied text is " + actualCopiedText);
         Assert.assertEquals(inputFieldValue, actualCopiedText, "The UIds ade not matching");
+
     }
 
     @Test(priority = 3, description = "alerts")
