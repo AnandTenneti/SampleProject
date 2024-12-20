@@ -39,6 +39,7 @@ The project uses the following:
    * IntellijIdea as the IDE
 
 <h3>Folder Structure</h3>
+
 The project is broadly organized in the following folder structure as shown below
 
 
@@ -51,11 +52,12 @@ scenario are added in the page
  Visibility page are identified with locators and the corresponding functions for the actions to 
 be performed are written in Visibility page
 
-tests:
+**tests:**
 
-dataprovider:
+**dataprovider:**
 
-reports:
+**reports:**
+
 The test results of the tests executed in the automation run are stored under the reports folder.
 
 
