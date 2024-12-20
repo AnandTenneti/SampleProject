@@ -16,7 +16,7 @@ public class UiElementsTest1 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Dynamic ID", "Class Attribute", "Hidden Layers", "Load Delay"));
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups={"smoke"},description = "Click button without dynamic ids")
     public void test_dynamicId() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -25,7 +25,7 @@ public class UiElementsTest1 extends BaseTest {
         dynamicPage.clickOnButtonWithoutUsingDynamicId();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, groups = {"sanity"}, description = "Verify class attribute ")
     public void test_classAttribute() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -34,12 +34,11 @@ public class UiElementsTest1 extends BaseTest {
         classAttribute.clickOnButton();
         Alert alert = driver.switchTo().alert();
         System.out.println(alert.getText());
-        Thread.sleep(5000);
         alert.accept();
-        Thread.sleep(3000);
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, description="test does not interact with elements because of z -order",
+            dependsOnMethods = {"test_classAttribute"})
     public void test_hiddenLayers() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -53,7 +52,7 @@ public class UiElementsTest1 extends BaseTest {
         //Assert.assertEquals(hlPage.isGreenButtonDisplayed(), false, "Green button is displayed");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4, description="waiting for a page to load")
     public void test_loadDelay() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
