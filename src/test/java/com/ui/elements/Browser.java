@@ -1,12 +1,14 @@
 package com.ui.elements;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Browser {
@@ -15,6 +17,7 @@ public class Browser {
 
     public Browser(String browserName) {
         this.browserName = browserName;
+
 
         if (browserName.equalsIgnoreCase("chrome"))
             this.driver = new ChromeDriver();
