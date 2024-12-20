@@ -103,5 +103,13 @@ The tests are run using the maven commands
 #### 5.Test Reporting
 
    The reports for the automation test results can be viewed under the reports 
-   folder in the index.html file
+   folder in the index.html file.
+
+
+
+##### NOTE:
+
+There are some known issues in this project that is being worked on. Will keep updating the 
+changes to fix the known issues . README file also will be updated regularly as and when the 
+issues are getting fixed.
 
