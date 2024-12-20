@@ -15,7 +15,7 @@ public class UiElementsTest3 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Scrollbars", "Dynamic Table", "Verify Text", "Progress Bar"));
 
-    @Test(priority = 1)
+    @Test(priority = 1, description="Scrolling an element into view")
     public void test_Scrollbar() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -26,7 +26,7 @@ public class UiElementsTest3 extends BaseTest {
         scrollPage.clickOnButton();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, description="Verifying cell value in a dynamic table")
     public void test_dynamicTable() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -38,7 +38,7 @@ public class UiElementsTest3 extends BaseTest {
                "matching");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, description="Finding an element by displayed text", enabled=false)
     public void test_verifyText() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -46,7 +46,7 @@ public class UiElementsTest3 extends BaseTest {
         //TODO
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4, description="Verify progress bar functionality")
     public void test_progressBar() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
