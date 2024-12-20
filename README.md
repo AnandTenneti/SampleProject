@@ -30,7 +30,9 @@ folder.
 
 
 <h2>2. Languages and Frameworks</h2>
+
 The project uses the following:
+
  
 
    * [Java](https://www.java.com/en/) as the programming language
