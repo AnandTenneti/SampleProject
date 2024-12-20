@@ -10,22 +10,23 @@ Designed and implemented an automation framework covering the scenarios using We
 
 <h2>1. Installation Steps</h2>
 
-1. Fork the repository
+* Fork the repository
 
-2. Clone the repository, i.e download your copy of the repository to your local machine
+* Clone the repository, i.e download your copy of the repository to your local machine
 
        git clone https://github.com/AnandTenneti/SampleProject.git
 
-3. Import the changes in IntelliJIdea
+* Import the changes in IntelliJIdea
 
-4. Make your desired changes
+* Make your desired changes
 
-5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal
+* Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal
  to run the tests.For example , to run all the tests using the firefox browser in headful mode
    
        mvn clean test -Dbrowser=firefox
    
-6. To see the report, go to the testoutput folder in the project root and then go to the report folder.
+* To see the report, go to the testoutput folder in the project root and then go to the report 
+folder.
 
 
 <h2>2. Languages and Frameworks</h2>
