@@ -41,9 +41,11 @@ The project uses the following:
 <h3>Folder Structure</h3>
 The project is broadly organized in the following folder structure as shown below
 
-pages: 
+
+**pages:** 
 Each individual scenario in the website is marked as one page. Locators and methods of each 
 scenario are added in the page
+
   Example:
      The scenario Visibility is considered as one page and the elements in the 
  Visibility page are identified with locators and the corresponding functions for the actions to 
