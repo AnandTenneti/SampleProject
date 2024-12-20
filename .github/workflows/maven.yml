@@ -39,26 +39,26 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup firefox
-        id: setup-firefox
-        uses: browser-actions/setup-firefox@v1
+#      - name: Setup firefox
+#        id: setup-firefox
+#        uses: browser-actions/setup-firefox@v1
+#        with:
+#          firefox-version: "latest"
+      - name: Setup chrome
+        uses: browser-actions/setup-chrome@v1
         with:
-          firefox-version: "latest"
-      #     - name: Setup chrome
-      #      uses: browser-actions/setup-chrome@v1
-      #        with:
-      #              # The Google Chrome/Chromium version to install and use.
-      #              chrome-version: "latest"
-      #              # Install dependent packages for Google Chrome/Chromium (
-      #              # Linux only).
-      #              install-dependencies: "false"
-      #              # Install the compatible version of ChromeDriver with the
-      #              # installed Google Chrome/Chromium.
-      #              install-chromedriver: "false"
-      #              # Do not use sudo to install Google Chrome/Chromium (Linux
-      #              # only).
-      #              no-sudo: "false"
-      #          # cache: maven
+        # The Google Chrome/Chromium version to install and use.
+           chrome-version: "latest"
+        # Install dependent packages for Google Chrome/Chromium (
+        # Linux only).
+           install-dependencies: "false"
+        # Install the compatible version of ChromeDriver with the
+        # installed Google Chrome/Chromium.
+           install-chromedriver: "false"
+        # Do not use sudo to install Google Chrome/Chromium (Linux
+        # only).
+           no-sudo: "false"
+        # cache: maven
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
