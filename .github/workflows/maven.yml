@@ -78,9 +78,16 @@ jobs:
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
           step: save
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v4
+#      - name: Archive code coverage results
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: code-coverage-report
+#          path: reports/index.html
+      - name: Upload Extent HTML report
+        uses: actions/upload-artifact@v3
+        if: always()
         with:
-          name: code-coverage-report
+          name: web-automation-report
           path: reports/index.html
+#          extent/report_*.html
 
