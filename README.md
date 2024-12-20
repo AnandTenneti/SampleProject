@@ -8,7 +8,7 @@ Playground</a>, different scenarios are provided for automation.
 Designed and implemented an automation framework covering the scenarios using WebDriver and Java
 **
 
-<h2>Installation Steps</h2>
+<h2>1. Installation Steps</h2>
 
 1. Fork the repository
 
@@ -28,7 +28,7 @@ Designed and implemented an automation framework covering the scenarios using We
 6. To see the report, go to the testoutput folder in the project root and then go to the report folder.
 
 
-<h2>Languages and Frameworks</h2>
+<h2>2. Languages and Frameworks</h2>
 The project uses the following:
  
 
@@ -38,7 +38,7 @@ The project uses the following:
    * <a href="https://maven.apache.org/">Maven</a> as the Java build tool
    * IntellijIdea as the IDE
 
-<h3>Folder Structure</h3>
+<h2>3.Folder Structure</h2>
 
 The project is broadly organized in the following folder structure as shown below
 
@@ -75,8 +75,9 @@ testng.xml
 Screenshots:
 Within this folder, screenshots of the pages of failed test cases are stored 
 
-5. **Running Tests**: Describes how to execute the tests using Maven or an IDE.
-   The tests are run using the maven commands
+<h2>Running Tests</h2> Describes how to execute the tests using Maven or an IDE.
+   
+The tests are run using the maven commands
    
    -- run the whole test suite
              
