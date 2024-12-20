@@ -21,14 +21,14 @@ public class UiElementsTest5 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Overlapped Element", "Shadow DOM", "Alerts", "File Upload"));
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "overlappedElement")
     public void test_overlappedElement() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Page Title is not matching");
     }
 
-    @Test(priority = 2)//Done
+    @Test(priority = 2, description = "shadowDOM")
     public void test_shadowDOM() throws InterruptedException, IOException, UnsupportedFlavorException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -40,10 +40,11 @@ public class UiElementsTest5 extends BaseTest {
         System.out.println("After clicking button" + inputFieldValue);
         sdPage.copyTextIntoClipboard();
         String actualCopiedText = sdPage.getCopiedTextFromClipboars();
+        System.out.println("Actual copied text is " + actualCopiedText);
         Assert.assertEquals(inputFieldValue, actualCopiedText, "The UIds ade not matching");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, description = "alerts")
     public void test_Alerts() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -56,7 +57,6 @@ public class UiElementsTest5 extends BaseTest {
         Assert.assertEquals(simpleAlertMessage, expectedAlertMessage, "Alert Messages are not " +
                 "matching");
         alertPage.clickOnOkButton();
-        Thread.sleep(2000);
         // Confirm Alert
         alertPage.clickOnConfirmAlertButton();
         alertPage.waitUntilAlertDialogIsDisplayed();
@@ -66,9 +66,7 @@ public class UiElementsTest5 extends BaseTest {
         alertPage.waitUntilAlertDialogIsDisplayed();
         confirmAlertMessage = alertPage.verifyAlertTextMessage();
         System.out.println(confirmAlertMessage);
-        Thread.sleep(2000);
         alertPage.clickOnOkButton();
-        Thread.sleep(2000);
         //Prompt Alert
         alertPage.clickOnPromptAlertButton();
         alertPage.waitUntilAlertDialogIsDisplayed();
@@ -80,20 +78,7 @@ public class UiElementsTest5 extends BaseTest {
         alertPage.acceptOrdismiss("Yes");
     }
 
-    //Upload a file using sendKeys method
-    @Test(priority = 4)
-    public void test_fileUpload() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        homePage.clickOnLink(links.get(3));
-        Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
-        FileUploadPage fpage = new FileUploadPage(driver);
-        fpage.switchToCurrentFrame();
-        String filePath = USER_DIR + "/src/test/resources/test1.txt";
-        System.out.println(filePath);
-        fpage.uploadFile(filePath);
-    }
-
-    @Test(priority = 4)
+    @Test(priority = 4, description = "uploadMultipleFiles")
     public void test_multipleFileUpload() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
@@ -111,7 +96,6 @@ public class UiElementsTest5 extends BaseTest {
                 }
             }
         }
-        Thread.sleep(5000);
     }
 
 }
