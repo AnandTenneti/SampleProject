@@ -55,9 +55,8 @@ scenario are added in the page
  Visibility page are identified with locators and the corresponding functions for the actions to 
 be performed are written in Visibility page
 
-**tests:**
-
-The tests for each scenario are maintained under elements folder. Each test contains 4 scenarios 
+**tests:** The tests for each scenario are maintained under elements folder. Each test contains 
+4 scenarios 
 
 Example:
  
