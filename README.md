@@ -9,7 +9,7 @@ Designed and implemented an automation framework covering the scenarios using We
 
 #### 1. Installation Steps
 
-* Fork the repository
+* [Fork](https://github.com/AnandTenneti/SampleProject/fork) the repository
 
 * Clone the repository, i.e download your copy of the repository to your local machine
 
