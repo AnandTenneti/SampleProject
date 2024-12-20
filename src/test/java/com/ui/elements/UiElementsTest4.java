@@ -15,7 +15,7 @@ public class UiElementsTest4 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Visibility", "Sample App", "Mouse Over", "Non-Breaking Space"));
 
-    @Test(priority = 1, groups = "smoke")
+    @Test(priority = 1, description="test visibility of an element on screen")
     public void test_visibility() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
@@ -36,7 +36,7 @@ public class UiElementsTest4 extends BaseTest {
      *                 and the password value is constant
      */
     @Test(priority = 2, dataProvider = "loginTestData", dataProviderClass = DataSupplier.class,
-            groups = "validation")
+            description = "test user login with data from data provider class")
     public void test_sampleApp(String username) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -65,7 +65,7 @@ public class UiElementsTest4 extends BaseTest {
      */
 
     @Test(priority = 3, dataProvider = "excelLoginData", dataProviderClass =
-            ExcelDataSupplier.class)
+            ExcelDataSupplier.class, description = "test user login with data from excel")
     public void test_sampleApp_using_excelData(String username, String password) {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
@@ -87,7 +87,7 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(logoutMessage, "User logged out.", "logout message is incorrect");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4, description = "test mouseOver functionality")
     public void test_mouseOver() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
@@ -118,7 +118,7 @@ public class UiElementsTest4 extends BaseTest {
         Assert.assertEquals(clicksCount, 2, "Clicks count is not matching");
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5, description="Test non-breaking space")
     public void test_nonBreakingSpace() {
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
