@@ -44,30 +44,31 @@ jobs:
         uses: browser-actions/setup-firefox@v1
         with:
           firefox-version: "latest"
-#     - name: Setup chrome
-#      uses: browser-actions/setup-chrome@v1
-#        with:
-#              # The Google Chrome/Chromium version to install and use.
-#              chrome-version: "latest"
-#              # Install dependent packages for Google Chrome/Chromium (
-#              # Linux only).
-#              install-dependencies: "false"
-#              # Install the compatible version of ChromeDriver with the
-#              # installed Google Chrome/Chromium.
-#              install-chromedriver: "false"
-#              # Do not use sudo to install Google Chrome/Chromium (Linux
-#              # only).
-#              no-sudo: "false"
-#          # cache: maven
+      #     - name: Setup chrome
+      #      uses: browser-actions/setup-chrome@v1
+      #        with:
+      #              # The Google Chrome/Chromium version to install and use.
+      #              chrome-version: "latest"
+      #              # Install dependent packages for Google Chrome/Chromium (
+      #              # Linux only).
+      #              install-dependencies: "false"
+      #              # Install the compatible version of ChromeDriver with the
+      #              # installed Google Chrome/Chromium.
+      #              install-chromedriver: "false"
+      #              # Do not use sudo to install Google Chrome/Chromium (Linux
+      #              # only).
+      #              no-sudo: "false"
+      #          # cache: maven
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
           step: restore
       - name: Build with Maven
 
-        run: |
-          mvn -v
-          mvn -B package --file pom.xml
+        #        run: |
+        #          mvn -v
+        #          mvn -B package --file pom.xml
+        run: mvn clean test -DsuiteXmlFile=testng.xml
       - uses: act10ns/slack@v2
         with:
           channel: '#dec-2024'
@@ -78,11 +79,11 @@ jobs:
         uses: skjolber/maven-cache-github-action@v3.1.1
         with:
           step: save
-#      - name: Archive code coverage results
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: code-coverage-report
-#          path: reports/index.html
+      #      - name: Archive code coverage results
+      #        uses: actions/upload-artifact@v4
+      #        with:
+      #          name: code-coverage-report
+      #          path: reports/index.html
       - name: Upload Extent HTML report
         uses: actions/upload-artifact@v4
         if: always()
