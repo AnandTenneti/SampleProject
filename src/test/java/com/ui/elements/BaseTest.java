@@ -47,7 +47,7 @@ public class BaseTest {
         String browser = capabilities.getBrowserName();
         String browserVersion = capabilities.getBrowserVersion();
         System.out.println(capabilities.getCapabilityNames().toString());
-        ExtentSparkReporter sparkReporter_all = new ExtentSparkReporter("AllTests.html");
+        ExtentSparkReporter sparkReporter_all = new ExtentSparkReporter("reports/index.html");
         sparkReporter_all.config().setReportName("WebDriver Automation Report");
         sparkReporter_all.config().setDocumentTitle("Ui Automation Playground ");
         extentReports = new ExtentReports();
@@ -68,7 +68,6 @@ public class BaseTest {
     public void createExtentTest(ITestContext context) throws IOException {
         extentTest = extentReports.createTest(context.getCurrentXmlTest().getName());
         System.out.println(context.getName());
-        System.out.println(context.getCurrentXmlTest().getName());
     }
 
     @BeforeMethod(alwaysRun = true)
