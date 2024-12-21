@@ -78,7 +78,7 @@ public class AutoWaitPage {
                 break;
             case "label":
                 String labelText = driver.findElement(By.cssSelector("#target")).getText();
-                Assert.assertEquals(labelText, "This is a Label");
+                Assert.assertEquals(labelText, "This is a Label","Label text is not matching");
                 break;
         }
     }
