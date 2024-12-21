@@ -77,7 +77,7 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void screenShotCapture(Method m, ITestResult result) {
-        System.out.println("Status of the skipped test method is " + result.getStatus());
+        //Verifying the result status and perform the further actions needed
             if (result.getStatus() == ITestResult.FAILURE) {
                 String base64Code = CaptureScreenshot();
                 extentTest.addScreenCaptureFromBase64String(base64Code, result.getName());
