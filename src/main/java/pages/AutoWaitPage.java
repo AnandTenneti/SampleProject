@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
@@ -63,7 +64,7 @@ public class AutoWaitPage {
     public void actionOnElement(String elementType) {
         switch (elementType) {
             case "input":
-                driver.findElement(By.cssSelector("#target")).sendKeys("Hello");
+                driver.findElement(By.cssSelector("#target")).sendKeys("Hello, input box");
                 break;
             case "select":
                 Select select = new Select(driver.findElement(By.cssSelector("#target")));
@@ -71,6 +72,13 @@ public class AutoWaitPage {
                 break;
             case "button":
                 driver.findElement(By.cssSelector("#target")).click();
+                break;
+            case "textarea":
+                driver.findElement(By.cssSelector("#target")).sendKeys("Hello, textarea");
+                break;
+            case "label":
+                String labelText = driver.findElement(By.cssSelector("#target")).getText();
+                Assert.assertEquals(labelText, "This is a Label");
                 break;
         }
     }
