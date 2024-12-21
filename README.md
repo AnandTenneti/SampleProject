@@ -13,7 +13,7 @@ Designed and implemented an automation framework covering the scenarios using We
 
 * Clone the repository, i.e download your copy of the repository to your local machine
 
-       git clone https://github.com/AnandTenneti/SampleProject.git
+       git clone https://github.com/[your_username]/SampleProject.git
 
 * Import the changes in IntelliJIdea
 
