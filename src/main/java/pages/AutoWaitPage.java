@@ -57,10 +57,6 @@ public class AutoWaitPage {
         return driver.findElement(By.cssSelector("#target")).isDisplayed();
     }
 
-    public void actionOnElement() {
-        driver.findElement(By.cssSelector("#target")).sendKeys("Hello , input box");
-    }
-
     public void actionOnElement(String elementType) {
         switch (elementType) {
             case "input":
