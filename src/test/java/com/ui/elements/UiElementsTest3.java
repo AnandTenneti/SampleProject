@@ -1,5 +1,6 @@
 package com.ui.elements;
 
+import com.aventstack.extentreports.Status;
 import pages.DynamicTablePage;
 import pages.HomePage;
 import pages.ProgressBarPage;
@@ -15,8 +16,9 @@ public class UiElementsTest3 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Scrollbars", "Dynamic Table", "Verify Text", "Progress Bar"));
 
-    @Test(priority = 1, description="Scrolling an element into view")
+    @Test(testName = "test_Scrollbar", priority = 1, description = "Scrolling an element into view")
     public void test_Scrollbar() {
+        extentTest.log(Status.INFO, "Testing Scrollbar test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
@@ -24,10 +26,13 @@ public class UiElementsTest3 extends BaseTest {
         scrollPage.scrollElementIntoView();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         scrollPage.clickOnButton();
+        extentTest.log(Status.INFO, "Completed testing Scrollbar functionality");
     }
 
-    @Test(priority = 2, description="Verifying cell value in a dynamic table")
+    @Test(testName = "test_dynamicTable", priority = 2, description = "Verifying cell value in a " +
+            "dynamic table")
     public void test_dynamicTable() throws InterruptedException {
+        extentTest.log(Status.INFO, "Testing Dynamic Table test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
@@ -35,19 +40,25 @@ public class UiElementsTest3 extends BaseTest {
         String cpuValue = page.getValues("Chrome");
         System.out.println(page.getLabelInMessage());
         Assert.assertTrue(page.getLabelInMessage().contains(cpuValue), "The values are not " +
-               "matching");
+                "matching");
+        extentTest.log(Status.INFO,"Completed testing Dynamic table functionality");
     }
 
-    @Test(priority = 3, description="Finding an element by displayed text", enabled=false)
+    @Test(testName = "test_verifyText", priority = 3, description = "Finding an element by " +
+            "displayed text", enabled = false)
     public void test_verifyText() {
+        extentTest.log(Status.INFO, "Testing VerifyText test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Page Title is not matching");
         //TODO
+        extentTest.log(Status.INFO,"Completed testing VerifyText test case");
     }
 
-    @Test(priority = 4, description="Verify progress bar functionality")
+    @Test(testName = "test_progressBar", priority = 4, description = "Verify progress bar " +
+            "functionality")
     public void test_progressBar() {
+        extentTest.log(Status.INFO, "Testing Progress Bar test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page title is not matching");
@@ -62,5 +73,6 @@ public class UiElementsTest3 extends BaseTest {
         pbPage.clickOnStopButton();
         resultDetails = pbPage.getResultDetails();
         Assert.assertTrue(resultDetails.contains("Result: 0"));
+        extentTest.log(Status.INFO, "Completed testing Progress Bar functionality");
     }
 }
