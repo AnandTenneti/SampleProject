@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class UiElementsTest1 extends BaseTest {
-,
+
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Dynamic ID", "Class Attribute", "Hidden Layers", "Load Delay"));
 
