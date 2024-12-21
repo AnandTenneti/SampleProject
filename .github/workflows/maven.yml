@@ -8,12 +8,6 @@
 name: UI Automation using WebDriver and Java CI with Maven
 
 on:
-  schedule:
-    - cron: '0 21 * 12 1'
-  #  push:
-  #    branches: [ "main" ]
-  #  pull_request:
-  #    branches: [ "main" ]
   workflow_dispatch:
 #    inputs:
 #      mavenProfile:
