@@ -113,3 +113,16 @@ There are some known issues in this project that is being worked on. Will keep u
 changes to fix the known issues . README file also will be updated regularly as and when the 
 issues are getting fixed.
 
+[Known Issues List](https://github.com/AnandTenneti/SampleProject/issues)
+* Implement checkboxes functionality in test_autoWait
+* Implement groups functionality
+* Implement profiles
+* Implement parallel testing
+* Setup a cron job in GithubActions to execute the test cases and get the test 
+  execution status regularly
+* Implement jobs to run in different browsers in Github Actions
+
+[Tasks for Milestone1](https://github.com/AnandTenneti/SampleProject/milestone/1)
+* Implement checkboxes functionality in test_autoWait
+* Implement groups functionality
+
