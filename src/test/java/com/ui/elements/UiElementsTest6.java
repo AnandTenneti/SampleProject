@@ -66,8 +66,8 @@ public class UiElementsTest6 extends BaseTest {
     }
 
 
-    @Test(testName = "test_autoWait", priority = 3, dataProvider = "elementTypeTestdata", " +
-            "dataProviderClass =
+    @Test(testName = "test_autoWait", priority = 3, dataProvider = "elementTypeTestdata",
+            dataProviderClass =
             DataSupplier.class, description = "wait for the element to become intractable")
     public void test_autoWait(String elementType) {
         extentTest.log(Status.INFO, "Testing Auto Wait test case");
