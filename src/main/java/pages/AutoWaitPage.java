@@ -60,21 +60,21 @@ public class AutoWaitPage {
     public void actionOnElement(String elementType) {
         switch (elementType) {
             case "input":
-                driver.findElement(By.cssSelector("#target")).sendKeys("Hello, input box");
+                targetElement.sendKeys("Hello, input box");
                 break;
             case "select":
-                Select select = new Select(driver.findElement(By.cssSelector("#target")));
+                Select select = new Select(targetElement);
                 select.selectByIndex(1);
                 break;
             case "button":
-                driver.findElement(By.cssSelector("#target")).click();
+                targetElement.click();
                 break;
             case "textarea":
-                driver.findElement(By.cssSelector("#target")).sendKeys("Hello, textarea");
+                targetElement.sendKeys("Hello, textarea");
                 break;
             case "label":
-                String labelText = driver.findElement(By.cssSelector("#target")).getText();
-                Assert.assertEquals(labelText, "This is a Label","Label text is not matching");
+                String labelText = targetElement.getText();
+                Assert.assertEquals(labelText, "This is a Label", "Label text is not matching");
                 break;
         }
     }
