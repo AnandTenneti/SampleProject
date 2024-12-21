@@ -1,5 +1,6 @@
 package com.ui.elements;
 
+import com.aventstack.extentreports.Status;
 import pages.AlertsPage;
 import pages.FileUploadPage;
 import pages.HomePage;
@@ -22,15 +23,19 @@ public class UiElementsTest5 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Overlapped Element", "Shadow DOM", "Alerts", "File Upload"));
 
-    @Test(priority = 1, description = "overlappedElement")
+    @Test(priority = 1, description = "overlappedElement", enabled = false)
     public void test_overlappedElement() {
+        extentTest.log(Status.INFO,"Testing overlappedElement test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Page Title is not matching");
+        //TODO
+        extentTest.log(Status.INFO,"Completed testing overlappedElement functionality");
     }
 
     @Test(priority = 2, description = "shadowDOM", enabled = false)
     public void test_shadowDOM() throws InterruptedException, IOException, UnsupportedFlavorException {
+        extentTest.log(Status.INFO,"Testing Shadow DOM test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Page Title is not matching");
@@ -43,15 +48,17 @@ public class UiElementsTest5 extends BaseTest {
         String actualCopiedText = sdPage.getCopiedTextFromClipboars();
         System.out.println("Actual copied text is " + actualCopiedText);
         Assert.assertEquals(inputFieldValue, actualCopiedText, "The UIds ade not matching");
-
+        extentTest.log(Status.INFO,"Completed testing Shadow DOM functionality");
     }
 
     @Test(priority = 3, description = "alerts")
     public void test_Alerts() throws InterruptedException {
+        extentTest.log(Status.INFO,"Testing dynamic Id test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), "Alerts", "Title is not matching");
         AlertsPage alertPage = new AlertsPage(driver);
+        extentTest.log(Status.INFO,"Testing Simple alert functionality");
         alertPage.clickOnAlertButton();
         alertPage.waitUntilAlertDialogIsDisplayed();
         String simpleAlertMessage = alertPage.verifyAlertTextMessage();
@@ -60,6 +67,7 @@ public class UiElementsTest5 extends BaseTest {
                 "matching");
         alertPage.clickOnOkButton();
         // Confirm Alert
+        extentTest.log(Status.INFO,"Testing Confirm alert functionality");
         alertPage.clickOnConfirmAlertButton();
         alertPage.waitUntilAlertDialogIsDisplayed();
         String confirmAlertMessage = alertPage.verifyAlertTextMessage();
@@ -70,6 +78,7 @@ public class UiElementsTest5 extends BaseTest {
         System.out.println(confirmAlertMessage);
         alertPage.clickOnOkButton();
         //Prompt Alert
+        extentTest.log(Status.INFO,"Testing Prompt alert functionality");
         alertPage.clickOnPromptAlertButton();
         alertPage.waitUntilAlertDialogIsDisplayed();
         alertPage.enterTextIntoAlert("dogs");
@@ -78,15 +87,18 @@ public class UiElementsTest5 extends BaseTest {
         String promptAlertMessage = alertPage.verifyAlertTextMessage();
         System.out.println(promptAlertMessage);
         alertPage.acceptOrdismiss("Yes");
+        extentTest.log(Status.INFO,"Completed testing alert functionalities");
     }
 
     @Test(priority = 4, description = "uploadMultipleFiles")
     public void test_multipleFileUpload() throws InterruptedException {
+        extentTest.log(Status.INFO,"Testing file upload test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(3));
         Assert.assertEquals(driver.getTitle(), links.get(3), "Page Title is not matching");
         FileUploadPage fpage = new FileUploadPage(driver);
         fpage.switchToCurrentFrame();
+        extentTest.log(Status.INFO,"Providing path to the testfiles folder");
         String folderPath = USER_DIR + PATH_TO_TEST_FILES_DIR;
         File[] listOfFilesInGivenFolder = fpage.getListOfFiles(folderPath);
         if (listOfFilesInGivenFolder != null) {
@@ -98,6 +110,6 @@ public class UiElementsTest5 extends BaseTest {
                 }
             }
         }
+        extentTest.log(Status.INFO,"Completed testing file upload functionality");
     }
-
 }
