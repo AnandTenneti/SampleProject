@@ -1,6 +1,7 @@
 package com.ui.elements;
 
 
+import com.aventstack.extentreports.Status;
 import com.dataprovider.DataSupplier;
 import com.dataprovider.TestData.WaitTime;
 import org.openqa.selenium.By;
@@ -27,6 +28,7 @@ public class UiElementsTest6 extends BaseTest {
 
     @Test(priority = 1, description = "wait for the animation to stop before clicking a button")
     public void test_animatedButton() throws InterruptedException {
+        extentTest.log(Status.INFO,"Testing Animated button test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(0));
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
@@ -39,10 +41,12 @@ public class UiElementsTest6 extends BaseTest {
         String statusMessage = abPage.getMessageDetails();
         System.out.println(statusMessage);
         Assert.assertTrue(statusMessage.contains(classNameOfMovingTargetButton));
+        extentTest.log(Status.INFO,"Completed testing animated button functionality");
     }
 
     @Test(priority = 2, description = "wait for the edit field to become enabled")
     public void test_disabledInput() throws InterruptedException {
+        extentTest.log(Status.INFO,"Testing disabled Input test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(1));
         Assert.assertEquals(driver.getTitle(), links.get(1), "Title is not matching");
@@ -56,12 +60,14 @@ public class UiElementsTest6 extends BaseTest {
         elementStatus = page.getStatus();
         Assert.assertEquals(elementStatus, "Input Enabled...", "Text is not matching");
         page.enterInputValue("Hello");
+        extentTest.log(Status.INFO,"Completed testing disabled input functionality");
     }
 
 
     @Test(priority = 4, dataProvider = "elementTypeTestdata", dataProviderClass =
             DataSupplier.class, description = "wait for the element to become intractable")
     public void test_autoWait(String elementType) {
+        extentTest.log(Status.INFO,"Testing Auto Wait test case");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnLink(links.get(2));
         Assert.assertEquals(driver.getTitle(), links.get(2), "Title is not matching");
@@ -83,7 +89,6 @@ public class UiElementsTest6 extends BaseTest {
         Assert.assertTrue(awPage.getStatusMessage().equalsIgnoreCase(
                 "Target element state restored."), "Messages are " +
                 "not same");
+        extentTest.log(Status.INFO,"Completed testing autowait functionality");
     }
-
-
 }
