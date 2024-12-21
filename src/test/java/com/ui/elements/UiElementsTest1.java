@@ -17,7 +17,7 @@ public class UiElementsTest1 extends BaseTest {
     ArrayList<String> links = new ArrayList<String>(
             Arrays.asList("Dynamic ID", "Class Attribute", "Hidden Layers", "Load Delay"));
 
-    @Test(priority = 1, description = "Click button without dynamic ids")
+    @Test(testName="test_dynamicID", priority = 1, description = "Click button without dynamic ids")
     public void test_dynamicId() {
         extentTest.log(Status.INFO,"Testing dynamic Id test case");
         HomePage homePage = new HomePage(driver);
@@ -25,9 +25,10 @@ public class UiElementsTest1 extends BaseTest {
         Assert.assertEquals(driver.getTitle(), links.get(0), "Title is not matching");
         DynamicIdPage dynamicPage = new DynamicIdPage(driver);
         dynamicPage.clickOnButtonWithoutUsingDynamicId();
+        extentTest.log(Status.INFO, "Completed testing dynamicId functionality");
     }
 
-    @Test(priority = 2, description = "Verify class attribute ")
+    @Test(testName="test_classAttribute", priority = 2, description = "Verify class attribute ")
     public void test_classAttribute() throws InterruptedException {
         extentTest.log(Status.INFO,"Testing class Attribute test case");
         HomePage homePage = new HomePage(driver);
@@ -38,10 +39,11 @@ public class UiElementsTest1 extends BaseTest {
         Alert alert = driver.switchTo().alert();
         System.out.println(alert.getText());
         alert.accept();
+        extentTest.log(Status.INFO, "Completed testing class Attribute functionality");
     }
 
-    @Test(priority = 3, description = "test does not interact with elements because of z -order",
-            dependsOnMethods = {"test_classAttribute"})
+    @Test(testName="test_hiddenLayers", priority = 3, description = "test does not interact with " +
+            "elements because of z -order", enabled=false)
     public void test_hiddenLayers() {
         extentTest.log(Status.INFO,"Testing hidden Layers test case");
         HomePage homePage = new HomePage(driver);
@@ -54,9 +56,10 @@ public class UiElementsTest1 extends BaseTest {
         greenButtonCssValue = hlPage.getCssValueOfElement();
         System.out.println(greenButtonCssValue);
         //Assert.assertEquals(hlPage.isGreenButtonDisplayed(), false, "Green button is displayed");
+        extentTest.log(Status.INFO, "Completed testing hiddenLayers functionality");
     }
 
-    @Test(priority = 4, description = "waiting for a page to load")
+    @Test(testName="test_loadDelay",priority = 4, description = "waiting for a page to load")
     public void test_loadDelay() {
         extentTest.log(Status.INFO,"Testing load Delay test case");
         HomePage homePage = new HomePage(driver);
@@ -67,5 +70,6 @@ public class UiElementsTest1 extends BaseTest {
         LoadDelayPage loadDelayPage = new LoadDelayPage(driver);
         Assert.assertTrue(loadDelayPage.isButtonDisplayed());
         loadDelayPage.clickOnButton();
+        extentTest.log(Status.INFO, "Completed testing loadDelay functionality");
     }
 }
