@@ -19,6 +19,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.internal.invokers.InvokedMethod;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -39,16 +40,15 @@ public class BaseTest {
     Properties properties = new Properties();
 
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeSuite
     public void initialiseExtentReports() throws IOException {
         String browserName = getProperty("browser") != null ? getProperty("browser") : "chrome";
         driver = Browser.getDriver(browserName);
         Capabilities capabilities = ((RemoteWebDriver) driver).getCapabilities();
         String browser = capabilities.getBrowserName();
         String browserVersion = capabilities.getBrowserVersion();
-        System.out.println(capabilities.getCapabilityNames().toString());
         ExtentSparkReporter sparkReporter_all = new ExtentSparkReporter("reports/index.html");
-        sparkReporter_all.config().setReportName("WebDriver Automation Report");
+        sparkReporter_all.config().setReportName("WebDriver Automation Report -  Regression test cases");
         sparkReporter_all.config().setDocumentTitle("Ui Automation Playground ");
         extentReports = new ExtentReports();
         extentReports.attachReporter(sparkReporter_all);
@@ -58,24 +58,24 @@ public class BaseTest {
         extentReports.setSystemInfo("Version", browserVersion);
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterSuite
     public void generateReports() {
         driver.quit();
         extentReports.flush();
     }
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeTest
     public void createExtentTest(ITestContext context) throws IOException {
         extentTest = extentReports.createTest(context.getCurrentXmlTest().getName());
         System.out.println(context.getName());
     }
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod
     public void launchURL() {
         driver.get(BASE_URL);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void screenShotCapture(Method m, ITestResult result) {
         //Verifying the result status and perform the further actions needed
             if (result.getStatus() == ITestResult.FAILURE) {
