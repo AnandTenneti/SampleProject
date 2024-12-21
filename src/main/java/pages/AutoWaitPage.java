@@ -69,10 +69,9 @@ public class AutoWaitPage {
                 Select select = new Select(driver.findElement(By.cssSelector("#target")));
                 select.selectByIndex(1);
                 break;
-//            case "textarea":
-//                driver.findElement(By.cssSelector("target")));
-//
-//                break;
+            case "button":
+                driver.findElement(By.cssSelector("#target")).click();
+                break;
         }
     }
 
