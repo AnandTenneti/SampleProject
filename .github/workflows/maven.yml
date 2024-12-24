@@ -8,6 +8,8 @@
 name: UI Automation using WebDriver and Java CI with Maven
 
 on:
+  issues:
+    types: [ closed,assigned, reopened ]
   workflow_dispatch:
 #    inputs:
 #      mavenProfile:
@@ -35,17 +37,17 @@ jobs:
       - name: Setup chrome
         uses: browser-actions/setup-chrome@v1
         with:
-        # The Google Chrome/Chromium version to install and use.
-           chrome-version: "latest"
-        # Install dependent packages for Google Chrome/Chromium (
-        # Linux only).
-           install-dependencies: "false"
-        # Install the compatible version of ChromeDriver with the
-        # installed Google Chrome/Chromium.
-           install-chromedriver: "false"
-        # Do not use sudo to install Google Chrome/Chromium (Linux
-        # only).
-           no-sudo: "false"
+          # The Google Chrome/Chromium version to install and use.
+          chrome-version: "latest"
+          # Install dependent packages for Google Chrome/Chromium (
+          # Linux only).
+          install-dependencies: "false"
+          # Install the compatible version of ChromeDriver with the
+          # installed Google Chrome/Chromium.
+          install-chromedriver: "false"
+          # Do not use sudo to install Google Chrome/Chromium (Linux
+          # only).
+          no-sudo: "false"
         # cache: maven
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v3.1.1
